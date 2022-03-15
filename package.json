@@ -33,8 +33,8 @@
     "tslib": "^2.2.0",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "^5.0.6",
     "zone.js": "~0.11.4",
-  
-    
+
+
     "@angular-devkit/build-angular": "~13.0.1",
     "@angular-eslint/builder": "~13.0.1",
     "@angular-eslint/eslint-plugin": "~13.0.1",
@@ -68,7 +68,7 @@
     "typescript": "~4.4.4"
   },
   "devDependencies": {
-    
+   
   },
   "description": "An Ionic project"
 }

@@ -5,11 +5,13 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ionic:build:prod": "ionic-app-scripts build -- --prod",
+    "start": "node server.js",
+    "heroku-postbuild": "npm run ionic:build:prod"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +37,7 @@
     "zone.js": "~0.11.4",
 
 
-     "@angular-devkit/build-angular": "~13.0.1",
+    "@angular-devkit/build-angular": "~13.0.1",
     "@angular-eslint/builder": "~13.0.1",
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
@@ -68,7 +70,7 @@
     "typescript": "~4.4.4"
   },
   "devDependencies": {
-   
+
   },
   "description": "An Ionic project"
 }

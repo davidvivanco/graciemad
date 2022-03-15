@@ -1,0 +1,271 @@
+.ml-a {
+    margin-left: auto;
+}
+
+// Super small
+
+.mr-xxs {
+    margin-right: 4px;
+}
+
+.ml-xxs {
+    margin-left: 4px;
+}
+
+.mt-xxs {
+    margin-top: 4px;
+}
+
+.mb-xxs {
+    margin-bottom: 4px;
+}
+
+// Extra small
+
+.mr-xs {
+    margin-right: 6px;
+}
+
+.ml-xs {
+    margin-left: 6px;
+}
+
+.mt-xs {
+    margin-top: 6px;
+}
+
+.mb-xs {
+    margin-bottom: 6px;
+}
+
+// Small
+
+.mr-s {
+    margin-right: 8px;
+}
+
+.ml-s {
+    margin-left: 8px;
+}
+
+.mt-s {
+    margin-top: 8px;
+}
+
+.mb-s {
+    margin-bottom: 8px;
+}
+
+// Small medium
+
+.mr-sm {
+    margin-right: 16px;
+}
+
+.ml-sm {
+    margin-left: 16px;
+}
+
+.mt-sm {
+    margin-top: 16px;
+}
+
+.mb-sm {
+    margin-bottom: 16px;
+}
+
+// Extra small medium
+
+.mr-xsm {
+    margin-right: 24px;
+}
+
+.ml-xsm {
+    margin-left: 24px;
+}
+
+.mt-xsm {
+    margin-top: 24px;
+}
+
+.mb-xsm {
+    margin-bottom: 24px;
+}
+
+// Medium
+
+.mr-m {
+    margin-right: 32px;
+}
+
+.ml-m {
+    margin-left: 32px;
+}
+
+.mt-m {
+    margin-top: 32px;
+}
+
+.mb-m {
+    margin-bottom: 32px;
+}
+
+// Large
+
+.mt-l {
+    margin-top: 48px;
+}
+
+.mb-l {
+    margin-bottom: 48px;
+}
+
+// Extra large
+
+.mt-xl {
+    margin-top: 64px;
+}
+
+// Paddings
+
+// Super small
+.pr-xxs {
+    padding-right: 4px;
+}
+
+.pl-xxs {
+    padding-left: 4px;
+}
+
+.pt-xxs {
+    padding-top: 4px;
+}
+
+.pb-xxs {
+    padding-bottom: 4px;
+}
+
+// Small medium
+.pr-sm {
+    padding-right: 16px;
+}
+
+.pl-sm {
+    padding-left: 16px;
+}
+
+.pt-sm {
+    padding-top: 16px;
+}
+
+.pb-sm {
+    padding-bottom: 16px;
+}
+
+// Extra small med
+.pr-xsm {
+    padding-right: 24px;
+}
+
+.pl-xsm {
+    padding-left: 24px;
+}
+
+.pt-xsm {
+    padding-top: 24px;
+}
+
+.pb-xsm {
+    padding-bottom: 24px;
+}
+
+// Small
+.pr-s {
+    padding-right: 8px;
+}
+
+.pl-s {
+    padding-left: 8px;
+}
+
+.pt-s {
+    padding-top: 8px;
+}
+
+.pb-s {
+    padding-bottom: 8px;
+}
+
+.pr-m {
+    padding-right: 32px;
+}
+
+.pl-m {
+    padding-left: 32px;
+}
+
+.pt-m {
+    padding-top: 32px;
+}
+
+.pb-m {
+    padding-bottom: 132px;
+}
+
+.padding-button__footer {
+    padding: 8px 16px 16px 16px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.t-center{
+    text-align: center;
+}
+
+.t-upper {
+    text-transform: uppercase;
+}
+
+.t-lower {
+    text-transform: lowercase;
+}
+
+.t-inherit {
+    text-transform: inherit;
+}
+
+.t-capitalize {
+    text-transform: capitalize;
+}
+
+.t-underline {
+    text-decoration: underline;
+}
+
+// Flex
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-jc-c {
+    justify-content: center;
+}
+
+.flex-jc-s {
+    justify-content: flex-start;
+}
+
+.flex-ai-c {
+    align-items: center;
+}

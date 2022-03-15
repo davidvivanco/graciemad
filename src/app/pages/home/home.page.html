@@ -1,0 +1,171 @@
+<ion-header id="main-header" collapse="fade" class="ion-no-border" [translucent]="true">
+  <ion-toolbar #toolbar>
+    <ion-thumbnail class="logo">
+      <img src="assets/images/logo.png" />
+    </ion-thumbnail>
+    <ion-icon #menuIconHeader (click)="openMenu()" slot="end" class="mr-s" size="large" name="menu"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content" scrollEvents="true" fullscreen="true" [appFadeHeader]="toolbar"
+  [menuIconHeader]="menuIconHeader" [menuIcon]="menuIcon">
+  <ion-button #socialMediaBar (click)="openSocialMedia($event)" class="social-media-nav animated fadeIn"
+    color="primary">
+    <div class="label"> {{'social.media.follow' | translate}} </div>
+    <ion-icon slot="start" name="logo-facebook"></ion-icon>
+    <ion-icon slot="start" name="logo-instagram"></ion-icon>
+  </ion-button>
+  <div class="banner">
+    <ion-icon (click)="openMenu()" #menuIcon color="light" slot="end" class="menu-icon" size="large" name="menu">
+    </ion-icon>
+    <div class="banner__box-container">
+      <div class="banner__box">
+      </div>
+      <div class="banner__box">
+        <div class="banner__title">Gracie
+          <div class="banner__subtitle">Jui-Jitsu</div>
+          <div class="banner__subtitle2">MADRID - EST. 2018</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-no--padding">
+      <ion-col class="ion-padding" size="12">
+        <div class="title flex flex-jc-c t-center mt-sm">
+          {{'section1.title'| translate}}
+        </div>
+        <div class="message mt-sm flex flex-jc-c t-center">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
+          facere. Ullam aperiam beatae facere?
+        </div>
+        <div class="message flex flex-jc-c t-center mt-sm">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
+          facere. Ullam aperiam beatae facere?
+        </div>
+        <div class="button flex flex-jc-c mt-m">
+          <ion-button class="fat-btn"> {{'btn.read.more'| translate}}
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="mt-m ion-padding" size="12">
+        <ion-slides [options]="slideOpts">
+          <ion-slide>
+            <ion-card>
+              <img class="mt-sm" src="assets/images/gi.svg" />
+              <ion-card-header class="pt-s">
+                <ion-card-title>Jui-Jitsu</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="text-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti, esse
+                amet consectetur est delectus...
+              </ion-card-content>
+              <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+              <img class="mt-sm" src="assets/images/mma.png" />
+              <ion-card-header class="pt-s">
+                <ion-card-title>MMA</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="text-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti, esse
+                amet consectetur est delectus...
+              </ion-card-content>
+              <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+              <img class="mt-sm" src="assets/images/grappling.png" />
+              <ion-card-header class="pt-s">
+                <ion-card-title>Grappling</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="text-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti, esse
+                amet consectetur est delectus...
+              </ion-card-content>
+              <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+            </ion-card>
+          </ion-slide>
+          <ion-slide>
+            <ion-card>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-padding" size="12">
+        <div class="title flex flex-jc-c t-center mt-m">
+          ¿Por qué debería comenzar a entrenar Jiu Jitsu?
+        </div>
+        <div class="message mt-sm flex flex-jc-c t-center">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
+          facere. Ullam aperiam beatae facere?
+        </div>
+        <div class="message flex flex-jc-c t-center mt-sm">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
+          facere. Ullam aperiam beatae facere?
+        </div>
+        <div class="button flex flex-jc-c mt-m">
+          <ion-button class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="ion-padding mt-sm pt-m">
+        <div>
+          {{'contact.label'| translate}}
+        </div>
+        <div class="mt-s">
+          {{'contact.desc'| translate}}
+        </div>
+        <form [formGroup]="formGroup" *ngIf="formGroup" class="mt-sm">
+          <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
+            <ion-label position="stacked">{{'form.email.label' |translate}}</ion-label>
+            <ion-input formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item class="mt-sm"
+            [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['message']?.errors?.required}">
+            <ion-label position="stacked">{{'form.message.label' |translate}}</ion-label>
+            <ion-textarea maxlength="30" formControlName="message" [rows]="4"></ion-textarea>
+          </ion-item>
+        </form>
+        <div class="flex flex-jc-c mt-m mb-s">
+          <ion-button (click)="send()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding" #map>
+      <div class="flex flex-jc-c t-center mt-sm">
+        {{'where.we.are.label' | translate}}
+      </div>
+      <div class="mt-s flex flex-jc-c t-center">
+        C. de San Bernardo, 4, 28801 Alcalá de Henares, Madrid - Gimnasio Ichi-Ban
+      </div>
+      <div class="map-container mt-sm">
+        <ion-icon (click)="openMap()" size="large" name="expand-outline"></ion-icon>
+        <div class="overlay" (click)="openMap()"></div>
+        <google-map [width]="320" [height]="300" [options]="mapOptions">
+          <map-marker [position]="marker.position"></map-marker>
+        </google-map>
+      </div>
+    </ion-row>
+    <ion-row class="footer flex flex-jc-c ion-padding mt-sm">
+      <div>{{year}} <span> - </span>
+        © Gracie Madrid</div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

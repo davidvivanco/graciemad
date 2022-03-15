@@ -1,3 +1,36 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-router-outlet [animated]="true" id="main"></ion-router-outlet>
+
+  <ion-menu side="start" menuId="menu" contentId="main">
+    <ion-header class="ion-no-border ion-padding-end">
+      <ion-toolbar translucent>
+        <ion-icon slot="end" size="large" name="close" (click)="closeMenu()"></ion-icon>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-item>
+        <ion-item>
+            <img id="gi-icon" src="assets/images/gi.svg" slot="start">
+          <ion-label>Nuestras clases</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-label>Contacto</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="navigate-circle-outline" slot="start"></ion-icon>
+          <ion-label>Donde estamos</ion-label>
+        </ion-item>
+        <ion-item (click)="changeLang()">
+          <img *ngIf="lang === 'es'" id="flag-icon" src="assets/images/united-kingdom.png" slot="start">
+          <img *ngIf="lang === 'en'" id="flag-icon" src="assets/images/spain.png" slot="start">
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu> 
 </ion-app>

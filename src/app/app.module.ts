@@ -31,7 +31,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   })
   ],
   providers: [
-    LaunchNavigator,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

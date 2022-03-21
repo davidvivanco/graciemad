@@ -5,10 +5,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { LaunchNavigator } from '@awesome-cordova-plugins/launch-navigator/ngx';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx'
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -31,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   })
   ],
   providers: [
+    ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

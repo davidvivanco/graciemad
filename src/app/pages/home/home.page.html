@@ -30,10 +30,13 @@
     </div>
   </div>
   <ion-grid class="ion-no-padding">
-    <ion-row class="ion-no--padding">
+    <ion-row class="ion-no--padding our-classes-row">
       <ion-col class="ion-padding" size="12">
-        <div class="title flex flex-jc-c t-center mt-sm">
-          {{'section1.title'| translate}}
+        <div class="title flex flex-jc-c t-center mt-sm title-effect">
+          <span class="animated fast fadeIn">
+            {{'section1.title'| translate}}
+            <br class="show-mobile"> {{'section1.title2'| translate}}
+          </span>
         </div>
         <div class="message mt-sm flex flex-jc-c t-center">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -59,9 +62,16 @@
                 <ion-card-title>Jiu-Jitsu</ion-card-title>
               </ion-card-header>
               <ion-card-content class="text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti, esse
-                amet consectetur est delectus...
+                <span class="show-mobile">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti,
+                  esse
+                  amet consectetur est delectus...
+                </span>
+                <span class="show-tablet">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
+                </span>
               </ion-card-content>
               <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
             </ion-card>
@@ -73,9 +83,16 @@
                 <ion-card-title>MMA</ion-card-title>
               </ion-card-header>
               <ion-card-content class="text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti, esse
-                amet consectetur est delectus...
+                <span class="show-mobile">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti,
+                  esse
+                  amet consectetur est delectus...
+                </span>
+                <span class="show-tablet">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
+                </span>
               </ion-card-content>
               <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
             </ion-card>
@@ -87,9 +104,16 @@
                 <ion-card-title>Grappling</ion-card-title>
               </ion-card-header>
               <ion-card-content class="text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti, esse
-                amet consectetur est delectus...
+                <span class="show-mobile">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti,
+                  esse
+                  amet consectetur est delectus...
+                </span>
+                <span class="show-tablet">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
+                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
+                </span>
               </ion-card-content>
               <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
             </ion-card>
@@ -105,7 +129,10 @@
         </ion-slides>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-no-padding">
+    <ion-row class="ion-no-padding schedule-row">
+      <app-calendar></app-calendar>
+    </ion-row>
+    <ion-row class="ion-no-padding contact-row">
       <ion-col class="ion-padding" size="12">
         <div class="title flex flex-jc-c t-center mt-m">
           ¿Por qué debería comenzar a entrenar Jiu Jitsu?
@@ -148,17 +175,20 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-padding" #map>
+    <ion-row class="ion-padding map-row" #map>
       <div class="flex flex-jc-c t-center mt-sm">
         {{'where.we.are.label' | translate}}
       </div>
       <div class="mt-s flex flex-jc-c t-center">
         C. de San Bernardo, 4, 28801 Alcalá de Henares, Madrid - Gimnasio Ichi-Ban
       </div>
-      <div class="map-container mt-sm">
+      <div class="map-container mt-m">
         <ion-icon (click)="openMap()" size="large" name="expand-outline"></ion-icon>
         <div class="overlay" (click)="openMap()"></div>
-        <google-map [width]="320" [height]="300" [options]="mapOptions">
+        <google-map class="show-mobile" [width]="320" [height]="300" [options]="mapOptions">
+          <map-marker [position]="marker.position"></map-marker>
+        </google-map>
+        <google-map class="show-tablet" [width]="520" [height]="300" [options]="mapOptions">
           <map-marker [position]="marker.position"></map-marker>
         </google-map>
       </div>
@@ -167,5 +197,6 @@
       <div>{{year}} <span> - </span>
         © Gracie Madrid</div>
     </ion-row>
+
   </ion-grid>
 </ion-content>

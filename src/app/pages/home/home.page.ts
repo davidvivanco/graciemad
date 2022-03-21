@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -18,17 +19,26 @@ export class HomePage implements OnInit {
   marker: google.maps.MarkerOptions;
   year: string;
   formGroup: FormGroup;
+  orientation: OrientationType;
 
   constructor(
     private menu: MenuController,
+    private screenOrientation: ScreenOrientation,
     private formBuilder: FormBuilder
   ) {
     this.urlGoogleMaps = 'https://www.google.com/maps/place/Ichi+Ban/@40.4831372,-3.3715561,17z/data=!3m1!4b1!4m5!3m4!1s0xd42490d570d5ac5:0x67c261a96ee0fdf2!8m2!3d40.4831034!4d-3.3694483';
     this.urlFacebook = 'https://www.facebook.com/graciemadridbjj/';
     this.urlInstagram = 'https://www.instagram.com/gracie_madrid_academy/';
-
+    this.orientation = this.screenOrientation.type as OrientationType;
     this.marker = { position: { lat: 40.4831331, lng: -3.3715561 } };
-    this.slideOpts = { slidesPerView: 1.1 };
+    this.slideOpts = {
+      slidesPerView: 1.1,
+      breakpoints:{
+        640: {
+          slidesPerView: 2.5,
+        }
+      }
+    };
     this.year = new Date().getFullYear().toString();
     this.mapOptions = {
       center: { lat: 40.4831331, lng: -3.3715561 },
@@ -47,14 +57,18 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.screenOrientation.onChange().subscribe((e) => {
+      this.orientation = this.screenOrientation.type as OrientationType
+    })
+
     setTimeout(() => {
       this.socialMediaBar.el.style.setProperty('display', 'block');
     }, 1500);
   }
 
-  send(){
+  send() {
     this.formGroup.markAsTouched();
-    if(this.formGroup.valid){
+    if (this.formGroup.valid) {
       console.log('Enviado')
     }
   }

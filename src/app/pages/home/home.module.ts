@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { HomePageRoutingModule } from './home-routing.module';
-
 import { HomePage } from './home.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 @NgModule({
   imports: [
@@ -18,9 +16,10 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     TranslateModule,
     IonicModule,
+    ComponentsModule,
     SharedModule,
-    HomePageRoutingModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    RouterModule.forChild([{ path: '', component: HomePage }]),
   ],
   declarations: [HomePage]
 })

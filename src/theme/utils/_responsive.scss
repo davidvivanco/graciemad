@@ -1,0 +1,55 @@
+// METS responsive breakpoints
+// You should be using only one at the same page:
+// df stands for Desktop First (Recommended)
+// mobile x-567
+// tablet 568-959
+// desktop 960-x
+// mobile+tablet x-959
+// tablet+desktop 568-x
+
+$mobile-breakpoint: 568px;
+$tablet-breakpoint: 960px;
+
+@mixin screen-mobile {
+  @include screen-custom(0px, $mobile-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin screen-tablet-and-mobile {
+  @include screen-custom(0px, $tablet-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin screen-desktop {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin screen-tablet-and-desktop {
+  @media (min-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+// Custom screen media query, only use it when some
+// device resolution significantly breaks the design
+@mixin screen-custom($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin screen-custom-max($max) {
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin screen-tablet {
+  @include screen-custom($mobile-breakpoint, $tablet-breakpoint - 1px) {
+    @content;
+  }
+}

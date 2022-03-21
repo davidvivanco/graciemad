@@ -1,3 +1,5 @@
+@import "../../../theme/utils/utils.scss";
+
 #main-header {
     ion-toolbar {
         opacity: 0;
@@ -39,6 +41,9 @@
         right: -64px;
         z-index: 2;
         display: none;
+        @include screen-tablet-and-desktop {
+            top: 170px;
+        }
         .label {
             transform: rotate(180deg);
         }
@@ -48,8 +53,9 @@
             width: 26px;
         }
     }
+
     ion-grid {
-        ion-row:nth-child(1) {
+        .our-classes-row {
             ion-col:nth-child(2) {
                 background: #f1f2ed;
                 ion-card {
@@ -60,7 +66,7 @@
                 }
             }
         }
-        ion-row:nth-child(2) {
+        .contact-row {
             ion-col:nth-child(2) {
                 background: #1c1c1c;
                 div:nth-child(1) {
@@ -80,17 +86,17 @@
                     align-items: center;
                     justify-content: space-around;
                 }
-                form{
-                    .invalid{
+                form {
+                    .invalid {
                         border: 1px solid red;
-                        ion-label{
+                        ion-label {
                             color: red;
                         }
                     }
                 }
             }
         }
-        ion-row:nth-child(3) {
+        .map-row {
             width: 100%;
             display: flex;
             justify-content: center;
@@ -126,7 +132,6 @@
             }
         }
         .footer {
-            // background-color: #010101;
             background: var(--ion-color-primary);
             color: white;
         }

@@ -9,6 +9,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx'
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { SafariViewController } from '@awesome-cordova-plugins/safari-view-controller/ngx';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -31,6 +33,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   })
   ],
   providers: [
+    InAppBrowser,
+    SafariViewController,
     ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -1,68 +1,120 @@
-
-@import 'responsive';
-@import '../utils/responsive';
+@import "responsive";
+@import "../utils/responsive";
 
 .hide-mobile {
-    @include screen-mobile {
-      display: none !important;
-    }
+  @include screen-mobile {
+    display: none !important;
   }
-  
-  .hide-desktop {
-    @include screen-desktop {
-      display: none !important;
-    }
-  }
-  
-  .hide-tablet {
-    @include screen-tablet {
-      display: none !important;
-    }
-  }
-  
-  .show-desktop {
-    @include screen-tablet-and-mobile {
-      display: none !important;
-    }
-  }
-  
-  .show-tablet {
-    @include screen-mobile {
-      display: none !important;
-    }
-    @include screen-desktop {
-      display: none !important;
-    }
-  }
-  
-  .show-mobile {
-    @include screen-tablet-and-desktop {
-      display: none !important;
-    }
-  }
+}
 
+.hide-desktop {
+  @include screen-desktop {
+    display: none !important;
+  }
+}
+
+.hide-tablet {
+  @include screen-tablet {
+    display: none !important;
+  }
+}
+
+.show-desktop {
+  @include screen-tablet-and-mobile {
+    display: none !important;
+  }
+}
+
+.show-tablet {
+  @include screen-mobile {
+    display: none !important;
+  }
+  @include screen-desktop {
+    display: none !important;
+  }
+}
+
+.show-mobile {
+  @include screen-tablet-and-desktop {
+    display: none !important;
+  }
+}
 
 .title-effect {
   animation-duration: 2.5s;
   animation-name: showtitle;
   color: var(--ion-color-primary);
   span {
-      background-color: var(--ion-color-secondary);
-      width: 75%;
-      padding: 8px;
-      border-radius: 9px;
-      @include screen-tablet-and-desktop {
-          width: 64%;
-      }
+    background-color: var(--ion-color-secondary);
+    width: 75%;
+    padding: 8px;
+    border-radius: 9px;
+    @include screen-tablet-and-desktop {
+      width: 64%;
+    }
   }
 }
 
 @keyframes showtitle {
   from {
-      margin-left: -100%;
+    margin-left: -100%;
   }
   to {
-      margin-left: 0%;
+    margin-left: 0%;
   }
 }
 
+.instagram-color {
+  border-bottom-left-radius: 5px;
+  background: #f09433;
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+.facebook-color {
+  border-bottom-right-radius: 5px;
+  background-color: #3b5998;
+}
+
+.marking{
+  background-size: 100% 100%!important;
+}
+
+.underlined {
+  color: var(--ion-color-primary);
+  flex: 1;
+  font-size: 2em;
+  line-height: 1.2;
+  text-decoration: none;
+  background-image: linear-gradient(to right, var(--ion-color-secondary) 0, var(--ion-color-secondary) 100%);
+  background-position: 0 1.2em;
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: background 1.5s;
+  text-align: center;
+  text-transform: uppercase;
+  // &:hover {
+  //   background-size: 100% 100%;
+  // }
+  // &--thin {
+  //   background-image: linear-gradient(to right, black 0, black 100%);
+  // }
+  &--thick {
+    background-position: 0 -0.3em;
+  }
+  // &--offset {
+  //   background-position: 0 0.2em;
+  //   box-shadow: inset 0 -0.5em 0 0 white;
+  // }
+  // &--gradient {
+  //   background-position: 0 -0.1em;
+  //   background-image: linear-gradient(to right, var(--ion-color-secondary) 0, lightgreen 100%);
+  // }
+  // &--reverse {
+  //   background-position: 100% -0.1em;
+  //   transition: background 1s; //yep, that's a long link
+  //   background-image: linear-gradient(to right, var(--ion-color-secondary) 0, var(--ion-color-secondary) 100%);
+  // }
+}

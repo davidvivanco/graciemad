@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { MenuController } from '@ionic/angular';
+import { IonContent, IonSlides, MenuController, ScrollCustomEvent } from '@ionic/angular';
+import { ScrollContentService } from 'src/app/shared/services/scroll-content.service';
+import { UtilsService } from 'src/app/shared/services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +11,22 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @HostListener('ionScroll', ['$event']) onContentScroll($event: ScrollCustomEvent)
+   {
+    let scrollTop = $event.detail.scrollTop
+    if(scrollTop > 140) this.title1.classList.add("marking");
+    if(scrollTop > 1270) this.title2.classList.add("marking");
+    if(scrollTop > 1710) this.title3.classList.add("marking");    
+  }
 
+
+  @ViewChild('title1') title1;
+  @ViewChild('title2') title2;
+  @ViewChild('title3') title3;
   @ViewChild('socialMediaBar') socialMediaBar;
+  @ViewChild(IonContent, { static: false }) content: IonContent;
+  @ViewChild('slider') slider: IonSlides;
+
   slideOpts;
   readonly urlGoogleMaps: string;
   readonly urlFacebook: string;
@@ -22,7 +38,9 @@ export class HomePage implements OnInit {
   orientation: OrientationType;
 
   constructor(
+    private scrollContent: ScrollContentService,
     private menu: MenuController,
+    private utils: UtilsService,
     private screenOrientation: ScreenOrientation,
     private formBuilder: FormBuilder
   ) {
@@ -33,7 +51,7 @@ export class HomePage implements OnInit {
     this.marker = { position: { lat: 40.4831331, lng: -3.3715561 } };
     this.slideOpts = {
       slidesPerView: 1.1,
-      breakpoints:{
+      breakpoints: {
         640: {
           slidesPerView: 2.5,
         }
@@ -62,8 +80,16 @@ export class HomePage implements OnInit {
     })
 
     setTimeout(() => {
-      this.socialMediaBar.el.style.setProperty('display', 'block');
+      this.socialMediaBar.el.style.setProperty('display', 'flex');
     }, 1500);
+  }
+
+  ngAfterViewInit(): void {
+    this.scrollContent.content = this.content;
+    this.title1 = this.title1.nativeElement;
+    this.title2 = this.title2.nativeElement;
+    this.title3 = this.title3.nativeElement;
+
   }
 
   send() {
@@ -74,29 +100,25 @@ export class HomePage implements OnInit {
   }
 
   openMenu() {
-    console.log("open")
     this.menu.enable(true, 'menu');
     this.menu.open('menu');
   }
 
   openMap() {
-    window.open(this.urlGoogleMaps, '_blanck')
+    this.utils.open(this.urlGoogleMaps)
   }
 
   openFacebook() {
-    window.open(this.urlFacebook, '_blanck')
-  }
-  openInstagram() {
-    window.open(this.urlInstagram, '_blanck')
+    this.utils.open(this.urlFacebook)
   }
 
-  openSocialMedia(e) {
-    const y = e.clientY;
-    if (y <= 270) {
-      this.openFacebook();
-      return;
-    } else if (y > 270 && y < 298) {
-      this.openInstagram();
-    }
+  openInstagram() {
+    this.utils.open(this.urlInstagram)
+  }
+
+  async onSlideChanged() {
+    const index = await this.slider.getActiveIndex();
+    console.log(await this.slider.getActiveIndex())
+    this.slider.lockSwipeToNext(index === 2);
   }
 }

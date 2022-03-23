@@ -34,13 +34,15 @@
         display: none;
     }
     .social-media-nav {
-        --color: var(--ion-color-primary);
+        color: white;
+        display: none;
+        flex-direction: row-reverse;
+        border-radius: 5px;
         top: 300px;
         position: fixed;
         transform: rotate(90deg);
-        right: -64px;
+        right: -31px;
         z-index: 2;
-        display: none;
         @include screen-tablet-and-desktop {
             top: 170px;
         }

@@ -9,12 +9,14 @@
 
 <ion-content id="main-content" scrollEvents="true" fullscreen="true" [appFadeHeader]="toolbar"
   [menuIconHeader]="menuIconHeader" [menuIcon]="menuIcon">
-  <ion-button #socialMediaBar (click)="openSocialMedia($event)" class="social-media-nav animated fadeIn"
-    color="primary">
-    <div class="label"> {{'social.media.follow' | translate}} </div>
-    <ion-icon slot="start" name="logo-facebook"></ion-icon>
-    <ion-icon slot="start" name="logo-instagram"></ion-icon>
-  </ion-button>
+  <ion-buttons #socialMediaBar class="social-media-nav animated fadeIn" color="primary">
+    <ion-button class="facebook-color" (click)="openFacebook()">
+      <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+    </ion-button>
+    <ion-button class="instagram-color" (click)="openInstagram()">
+      <ion-icon slot="icon-only" name="logo-instagram"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   <div class="banner">
     <ion-icon (click)="openMenu()" #menuIcon color="light" slot="end" class="menu-icon" size="large" name="menu">
     </ion-icon>
@@ -32,12 +34,9 @@
   <ion-grid class="ion-no-padding">
     <ion-row class="ion-no--padding our-classes-row">
       <ion-col class="ion-padding" size="12">
-        <div class="title flex flex-jc-c t-center mt-sm title-effect">
-          <span class="animated fast fadeIn">
+        <p class="t-center"><a #title1 class="underlined underlined--thick">
             {{'section1.title'| translate}}
-            <br class="show-mobile"> {{'section1.title2'| translate}}
-          </span>
-        </div>
+          </a></p>
         <div class="message mt-sm flex flex-jc-c t-center">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
@@ -54,7 +53,9 @@
         </div>
       </ion-col>
       <ion-col class="mt-m ion-padding" size="12">
-        <ion-slides [options]="slideOpts">
+        <div class="title">
+        </div>
+        <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="onSlideChanged()">
           <ion-slide>
             <ion-card>
               <img class="mt-sm" src="assets/images/gi.svg" />
@@ -130,13 +131,33 @@
       </ion-col>
     </ion-row>
     <ion-row class="ion-no-padding schedule-row">
-      <app-calendar></app-calendar>
+      <ion-col class="ion-no-padding" size="12">
+        <app-calendar></app-calendar>
+      </ion-col>
+      <ion-col class="ion-padding" size="12">
+        <p class="t-center"><a #title2 class="underlined underlined--thick">
+            Sobre nosotros </a></p>
+
+        <div class="message mt-sm flex flex-jc-c t-center">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
+          facere. Ullam aperiam beatae facere?
+        </div>
+        <div class="message flex flex-jc-c t-center mt-sm">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
+          facere. Ullam aperiam beatae facere?
+        </div>
+        <div class="button flex flex-jc-c mt-m">
+          <ion-button class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
+        </div>
+      </ion-col>
     </ion-row>
     <ion-row class="ion-no-padding contact-row">
       <ion-col class="ion-padding" size="12">
-        <div class="title flex flex-jc-c t-center mt-m">
+        <p class="t-center"><a #title3 class="underlined underlined--thick">
           ¿Por qué debería comenzar a entrenar Jiu Jitsu?
-        </div>
+        </a></p>
         <div class="message mt-sm flex flex-jc-c t-center">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt

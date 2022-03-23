@@ -1,8 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { IonContent, MenuController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { ScreenSizeService } from './shared/services/screen-size.service';
+import { ScrollContentService } from './shared/services/scroll-content.service';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,13 @@ export class AppComponent {
   }
 
   lang: 'es' | 'en';
-  
+
 
   constructor(
     private menu: MenuController,
     private screenSizeService: ScreenSizeService,
-    private router:Router,
+    private scrollContent: ScrollContentService,
+    private router: Router,
     private translate: TranslateService
   ) {
     this.lang = 'es'
@@ -40,13 +42,7 @@ export class AppComponent {
         this.router.navigateByUrl('/home-web');
 
       }
-
- 
-
       this.isDesktop = isDesktop;
-
- 
-
     })
   }
 
@@ -58,6 +54,16 @@ export class AppComponent {
 
   closeMenu() {
     this.menu.close('menu');
+  }
+
+
+  getContent() {
+    return document.querySelector('ion-content');
+  }
+
+  scrollToPoint(x: number) {
+    this.closeMenu();
+    this.scrollContent.scrollTo(x)
   }
 }
 

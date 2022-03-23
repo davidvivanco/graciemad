@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-calendar',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  @Input() noShowGi: boolean;
+  @Input() noShowGrappling: boolean;
+  @Input() noShowMMA: boolean;
 
-  ngOnInit() {}
+  constructor(
+    public utils: UtilsService
+  ) { }
+
+  ngOnInit() { }
 
 }

@@ -22,7 +22,7 @@ body {
 }
 
 .gi-calendar,
-.mma-calendar{
+.mma-calendar {
     filter: invert(1);
     width: 25px;
 }
@@ -41,9 +41,9 @@ body {
 }
 
 .calendar {
-    background: #2b4450;
+    background: var(--calendar-background, #2b4450);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    height: 300px;
+    height: var(--calendar-height, 300px);
     perspective: 1000;
     transition: 0.9s;
     transform-style: preserve-3d;
@@ -90,9 +90,9 @@ body {
     font-weight: 300;
 }
 
-.week-days-container{
+.week-days-container {
     position: relative;
-    .hour{
+    .hour {
         position: absolute;
         color: #dfebed;
         font-size: 0.8rem;

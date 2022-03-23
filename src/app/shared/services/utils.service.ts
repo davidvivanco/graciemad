@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SafariViewController } from '@awesome-cordova-plugins/safari-view-controller/ngx';
-import { Platform } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { DetailsComponent } from '../components/details/details.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,12 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 export class UtilsService {
 
   constructor(
-    private platform: Platform,
+    private modalController: ModalController,
     private iab: InAppBrowser,
     private safariViewController: SafariViewController) { }
 
 
-  open(url: string) {
+  openUrl(url: string) {
     if (!url || url === '') return;
     return this.safariViewController
       .isAvailable()
@@ -43,7 +44,7 @@ export class UtilsService {
         tintColor: '#d81e05'
       })
       .toPromise()
-      .then(_ => {})
+      .then(_ => { })
       .catch(error => {
         console.log(
           this,
@@ -54,4 +55,11 @@ export class UtilsService {
       });
   }
 
+  async openModalDetail() {
+    const modal = await this.modalController.create({
+      component: DetailsComponent,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
 }

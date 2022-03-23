@@ -9,11 +9,11 @@
 
 <ion-content id="main-content" scrollEvents="true" fullscreen="true" [appFadeHeader]="toolbar"
   [menuIconHeader]="menuIconHeader" [menuIcon]="menuIcon">
-  <ion-buttons #socialMediaBar class="social-media-nav animated fadeIn" color="primary">
-    <ion-button class="facebook-color" (click)="openFacebook()">
+  <ion-buttons mode="md" #socialMediaBar class="social-media-nav animated fadeIn" color="primary">
+    <ion-button mode="md" class="facebook-color" (click)="openFacebook()">
       <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
     </ion-button>
-    <ion-button class="instagram-color" (click)="openInstagram()">
+    <ion-button mode="md" class="instagram-color" (click)="openInstagram()">
       <ion-icon slot="icon-only" name="logo-instagram"></ion-icon>
     </ion-button>
   </ion-buttons>
@@ -48,12 +48,13 @@
           facere. Ullam aperiam beatae facere?
         </div>
         <div class="button flex flex-jc-c mt-m">
-          <ion-button class="fat-btn"> {{'btn.read.more'| translate}}
+          <ion-button mode="md" class="fat-btn" (click)="utils.openModalDetail()"> {{'btn.read.more'| translate}}
           </ion-button>
         </div>
       </ion-col>
       <ion-col class="mt-m ion-padding" size="12">
-        <div class="title">
+        <div class="our-classes-title">
+          Nuestras clases
         </div>
         <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="onSlideChanged()">
           <ion-slide>
@@ -74,7 +75,7 @@
                   nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
                 </span>
               </ion-card-content>
-              <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+              <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
             </ion-card>
           </ion-slide>
           <ion-slide>
@@ -95,7 +96,7 @@
                   nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
                 </span>
               </ion-card-content>
-              <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+              <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
             </ion-card>
           </ion-slide>
           <ion-slide>
@@ -116,7 +117,7 @@
                   nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
                 </span>
               </ion-card-content>
-              <ion-button class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+              <ion-button mode="md" class="fat-btn mb-sm" (click)="utils.openModalDetail()">{{'btn.read.more'| translate}}</ion-button>
             </ion-card>
           </ion-slide>
           <ion-slide>
@@ -149,7 +150,7 @@
           facere. Ullam aperiam beatae facere?
         </div>
         <div class="button flex flex-jc-c mt-m">
-          <ion-button class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
+          <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
         </div>
       </ion-col>
     </ion-row>
@@ -169,7 +170,7 @@
           facere. Ullam aperiam beatae facere?
         </div>
         <div class="button flex flex-jc-c mt-m">
-          <ion-button class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
+          <ion-button (click)="utils.openModalDetail()" mode="md" class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
         </div>
       </ion-col>
       <ion-col size="12" class="ion-padding mt-sm pt-m">
@@ -191,7 +192,7 @@
           </ion-item>
         </form>
         <div class="flex flex-jc-c mt-m mb-s">
-          <ion-button (click)="send()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
+          <ion-button mode="md" (click)="send()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
           </ion-button>
         </div>
       </ion-col>

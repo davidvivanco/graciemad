@@ -38,9 +38,9 @@ export class HomePage implements OnInit {
   orientation: OrientationType;
 
   constructor(
+    public utils: UtilsService,
     private scrollContent: ScrollContentService,
     private menu: MenuController,
-    private utils: UtilsService,
     private screenOrientation: ScreenOrientation,
     private formBuilder: FormBuilder
   ) {
@@ -89,7 +89,6 @@ export class HomePage implements OnInit {
     this.title1 = this.title1.nativeElement;
     this.title2 = this.title2.nativeElement;
     this.title3 = this.title3.nativeElement;
-
   }
 
   send() {
@@ -105,15 +104,15 @@ export class HomePage implements OnInit {
   }
 
   openMap() {
-    this.utils.open(this.urlGoogleMaps)
+    this.utils.openUrl(this.urlGoogleMaps)
   }
 
   openFacebook() {
-    this.utils.open(this.urlFacebook)
+    this.utils.openUrl(this.urlFacebook)
   }
 
   openInstagram() {
-    this.utils.open(this.urlInstagram)
+    this.utils.openUrl(this.urlInstagram)
   }
 
   async onSlideChanged() {

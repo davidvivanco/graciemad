@@ -4,7 +4,7 @@
       <div class="current-date">
         <h1>HORARIO</h1>
         <div>
-          <ion-button color="light" fill="outline">
+          <ion-button mode="md" (click)="utils.openModalDetail()" color="light" fill="outline">
             Tarifas
           </ion-button>
         </div>
@@ -19,7 +19,7 @@
           <div>SAT</div>
           <div>SUN</div>
         </div>
-        <div class="week-days-container">
+        <div class="week-days-container" *ngIf="!noShowGi">
           <div class="hour">19:45 <br> 20:45</div>
           <div class="week-days">
             <div class="day-work"><img class="gi-calendar" src="assets/images/gi.svg" /></div>
@@ -31,7 +31,7 @@
             <div class="day-off">X</div>
           </div>
         </div>
-        <div class="week-days-container">
+        <div class="week-days-container" *ngIf="!noShowGrappling">
           <div class="hour">20:45 <br> 21:45</div>
           <div class="week-days">
             <div> <img class="mma-calendar day-work" src="assets/images/grappling.png" /></div>
@@ -43,7 +43,7 @@
             <div class="day-off">X</div>
           </div>
         </div>
-        <div class="week-days-container">
+        <div class="week-days-container" *ngIf="!noShowMMA">
           <div class="hour">20:45 <br> 21:45</div>
           <div class="week-days">
             <div class="day-work"><img class="mma-calendar" src="assets/images/mma.png" /></div>

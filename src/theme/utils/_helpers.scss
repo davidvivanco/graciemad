@@ -40,18 +40,25 @@
   }
 }
 
-.title-effect {
-  animation-duration: 2.5s;
+.title-effect3s {
+  animation-duration: 3s;
+  animation-name: showtitleup;
+  // color: var(--ion-color-primary);
+}
+
+.title-effect4s {
+  animation-duration: 4s;
   animation-name: showtitle;
-  color: var(--ion-color-primary);
-  span {
-    background-color: var(--ion-color-secondary);
-    width: 75%;
-    padding: 8px;
-    border-radius: 9px;
-    @include screen-tablet-and-desktop {
-      width: 64%;
-    }
+  // color: var(--ion-color-primary);
+
+}
+
+@keyframes showtitleup {
+  from {
+    margin-top: -100%;
+  }
+  to {
+    margin-top: 0%;
   }
 }
 

@@ -13,6 +13,7 @@ import { UtilsService } from 'src/app/shared/services/utils.service';
 export class HomePage implements OnInit {
   @HostListener('ionScroll', ['$event']) onContentScroll($event: ScrollCustomEvent) {
     let scrollTop = $event.detail.scrollTop
+    if(scrollTop > 90) this.swipe.el.style.setProperty('animation', null);
     if (scrollTop > 270) this.socialMediaBar.el.style.setProperty('display', 'flex');
     else this.socialMediaBar.el.style.setProperty('display', 'none');
     if (scrollTop > 140) this.title1.classList.add("marking");
@@ -24,6 +25,7 @@ export class HomePage implements OnInit {
   @ViewChild('title1') title1;
   @ViewChild('title2') title2;
   @ViewChild('title3') title3;
+  @ViewChild('swipe') swipe;
   @ViewChild('socialMediaBar') socialMediaBar;
   @ViewChild(IonContent, { static: false }) content: IonContent;
   @ViewChild('slider') slider: IonSlides;
@@ -40,7 +42,7 @@ export class HomePage implements OnInit {
 
   constructor(
     public utils: UtilsService,
-    private scrollContent: ScrollContentService,
+    public scrollContent: ScrollContentService,
     private menu: MenuController,
     private screenOrientation: ScreenOrientation,
     private formBuilder: FormBuilder
@@ -79,6 +81,9 @@ export class HomePage implements OnInit {
     this.screenOrientation.onChange().subscribe((e) => {
       this.orientation = this.screenOrientation.type as OrientationType
     })
+      setTimeout(() => {
+         this.swipe.el.style.setProperty('animation', 'spin 6s infinite');
+      },5000);
   }
 
   ngAfterViewInit(): void {
@@ -86,6 +91,8 @@ export class HomePage implements OnInit {
     this.title1 = this.title1.nativeElement;
     this.title2 = this.title2.nativeElement;
     this.title3 = this.title3.nativeElement;
+    console.log(this.swipe)
+    this.swipe = this.swipe;
   }
 
   send() {

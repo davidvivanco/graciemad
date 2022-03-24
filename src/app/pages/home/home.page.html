@@ -19,16 +19,21 @@
   <div class="banner">
     <ion-icon (click)="openMenu()" #menuIcon color="light" slot="end" class="menu-icon" size="large" name="menu">
     </ion-icon>
-    <div class="banner__box-container">
-      <div class="banner__box">
-      </div>
-      <!-- <div class="banner__box">
-        <div class="banner__title">Gracie
-          <div class="banner__subtitle">Jiu-Jitsu</div>
-          <div class="banner__subtitle2">MADRID - EST. 2018</div>
+    <ion-grid class="ion-no-padding">
+      <ion-col class="label-col flex flex-column pt-l mt-sm">
+        <div class="title-effect3s">Gracie</div>
+        <div class="title-effect4s">Madrid <small>Jiu-Jitsu - EST.2018</small></div>
+      </ion-col>
+      <ion-col class="swipe-col mt-s flex ion-justify-content-center flex-column flex-ai-c">
+        <div class="flex img-box mb-s">
+          <img src="/assets/images/banner2.jpg" alt="">
         </div>
-      </div> -->
-    </div>
+        <div class="swipe mt-s" >
+          Swipe
+        </div>
+        <ion-icon (click)="scrollContent.scrollTo(1000)" #swipe size="large"  name="arrow-down-outline"></ion-icon>
+      </ion-col>
+    </ion-grid>
   </div>
   <ion-grid class="ion-no-padding">
     <ion-row class="ion-no--padding our-classes-row">

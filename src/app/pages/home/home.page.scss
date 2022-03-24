@@ -7,6 +7,12 @@
         ion-thumbnail {
             margin-left: 5px;
         }
+        ion-icon {
+            background: var(--ion-color-primary);
+            border-radius: 23px;
+            padding: 6px;
+            color: white;
+        }
     }
 }
 
@@ -37,7 +43,7 @@
         transform: rotate(90deg);
         right: -31px;
         z-index: 2;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         @include screen-tablet-and-desktop {
             top: 170px;
         }
@@ -146,53 +152,69 @@
 
 .banner {
     height: 100vh;
-    background-image: url("/assets/images/banner2.jpg");
-    background-size: cover;
-    background-position: center;
+    position: relative;
     .menu-icon {
         position: fixed;
         right: 14px;
         top: 12px;
+        background: var(--ion-color-primary);
+        border-radius: 23px;
+        padding: 6px;
     }
-    &__box:nth-child(2) {
-        display: flex;
-        align-items: baseline;
-    }
-    &__box-container {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        flex-wrap: wrap;
-    }
-    &__title {
-        animation-duration: 2.5s;
-        animation-name: showbanner;
-        padding: 10px;
-        font-size: 3rem;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: var(--ion-color-primary);
-        background-color: var(--ion-color-secondary);
-        width: 55%;
-        margin-left: 20px;
-        margin-bottom: 30px;
-        border-radius: 5px;
-    }
-    &__subtitle {
-        font-size: 1.3rem;
-        position: relative;
-        top: -10px;
-        padding-left: 3px;
-    }
-    &__subtitle2 {
-        font-size: 0.7rem;
-        position: relative;
-        top: -10px;
-        padding-left: 4px;
-    }
-    &__box {
-        width: 100%;
-        height: 50%;
+    ion-grid {
+        height: 100vh;
+        ion-col {
+            height: 55%;
+        }
+        .label-col {
+            height: 40%;
+            padding-left: 20px;
+            justify-content: center;
+            align-items: center;
+            div {
+                font-size: 55px;
+                font-weight: 500;
+                text-transform: uppercase;
+                background: var(--ion-color-secondary);
+                width: 55%;
+                height: auto;
+            }
+            div:nth-child(1) {
+                background: var(--ion-color-primary);
+                color: white;
+                padding: 6px;
+                transform: rotate(-2deg);
+                width: 75%;
+                text-align: center;
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+            div:nth-child(2) {
+                font-size: 40px;
+                transform: rotate(-3deg);
+                padding: 10px;
+                width: 60%;
+                text-align: center;
+                color: var(--ion-color-primary);
+                width: 65%;
+                small {
+                    display: block;
+                    font-size: 10px;
+                }
+            }
+            div:nth-child(3) {
+                font-size: 20px;
+            }
+        }
+        .swipe-col {
+            .img-box {
+                width: 92%;
+            }
+            bottom: 10px;
+            .swipe {
+                font-size: 20px;
+            }
+        }
     }
 }
 

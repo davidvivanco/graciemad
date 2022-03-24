@@ -37,6 +37,7 @@
         transform: rotate(90deg);
         right: -31px;
         z-index: 2;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         @include screen-tablet-and-desktop {
             top: 170px;
         }
@@ -145,7 +146,7 @@
 
 .banner {
     height: 100vh;
-    background-image: url("/assets/images/banner.jpg");
+    background-image: url("/assets/images/banner2.jpg");
     background-size: cover;
     background-position: center;
     .menu-icon {

@@ -11,12 +11,13 @@ import { UtilsService } from 'src/app/shared/services/utils.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  @HostListener('ionScroll', ['$event']) onContentScroll($event: ScrollCustomEvent)
-   {
+  @HostListener('ionScroll', ['$event']) onContentScroll($event: ScrollCustomEvent) {
     let scrollTop = $event.detail.scrollTop
-    if(scrollTop > 140) this.title1.classList.add("marking");
-    if(scrollTop > 1270) this.title2.classList.add("marking");
-    if(scrollTop > 1710) this.title3.classList.add("marking");    
+    if (scrollTop > 270) this.socialMediaBar.el.style.setProperty('display', 'flex');
+    else this.socialMediaBar.el.style.setProperty('display', 'none');
+    if (scrollTop > 140) this.title1.classList.add("marking");
+    if (scrollTop > 1270) this.title2.classList.add("marking");
+    if (scrollTop > 1710) this.title3.classList.add("marking");
   }
 
 
@@ -78,10 +79,6 @@ export class HomePage implements OnInit {
     this.screenOrientation.onChange().subscribe((e) => {
       this.orientation = this.screenOrientation.type as OrientationType
     })
-
-    setTimeout(() => {
-      this.socialMediaBar.el.style.setProperty('display', 'flex');
-    }, 1500);
   }
 
   ngAfterViewInit(): void {

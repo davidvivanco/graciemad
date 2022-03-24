@@ -4,17 +4,18 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { IonicModule } from '@ionic/angular';
 import { DetailsComponent } from './details/details.component';
 import { TranslateModule } from '@ngx-translate/core';
-
-
+import { DetailsClassComponent } from './details-class/details-class.component';
 
 @NgModule({
   declarations: [
     CalendarComponent,
-    DetailsComponent
+    DetailsComponent,
+    DetailsClassComponent
   ],
   exports:[
     CalendarComponent,
-    DetailsComponent
+    DetailsComponent,
+    DetailsClassComponent
   ],
   imports: [
     CommonModule,

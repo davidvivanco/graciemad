@@ -6,7 +6,6 @@
     <ion-icon #menuIconHeader (click)="openMenu()" slot="end" class="mr-s" size="large" name="menu"></ion-icon>
   </ion-toolbar>
 </ion-header>
-
 <ion-content id="main-content" scrollEvents="true" fullscreen="true" [appFadeHeader]="toolbar"
   [menuIconHeader]="menuIconHeader" [menuIcon]="menuIcon">
   <ion-buttons mode="md" #socialMediaBar class="social-media-nav animated fadeIn" color="primary">
@@ -23,12 +22,12 @@
     <div class="banner__box-container">
       <div class="banner__box">
       </div>
-      <div class="banner__box">
+      <!-- <div class="banner__box">
         <div class="banner__title">Gracie
           <div class="banner__subtitle">Jiu-Jitsu</div>
           <div class="banner__subtitle2">MADRID - EST. 2018</div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <ion-grid class="ion-no-padding">
@@ -52,7 +51,7 @@
           </ion-button>
         </div>
       </ion-col>
-      <ion-col class="mt-m ion-padding" size="12">
+      <ion-col class="mt-m ion-padding pb-sm" size="12">
         <div class="our-classes-title">
           Nuestras clases
         </div>
@@ -75,7 +74,8 @@
                   nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
                 </span>
               </ion-card-content>
-              <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+              <ion-button mode="md" (click)="utils.openModalClassDetail(false,true,true)" class="fat-btn mb-sm">
+                {{'btn.read.more'| translate}}</ion-button>
             </ion-card>
           </ion-slide>
           <ion-slide>
@@ -96,7 +96,9 @@
                   nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
                 </span>
               </ion-card-content>
-              <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn mb-sm">{{'btn.read.more'| translate}}</ion-button>
+              <ion-button mode="md" (click)="utils.openModalClassDetail(true,true,false)" class="fat-btn mb-sm">
+                {{'btn.read.more'|
+                translate}}</ion-button>
             </ion-card>
           </ion-slide>
           <ion-slide>
@@ -117,7 +119,9 @@
                   nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
                 </span>
               </ion-card-content>
-              <ion-button mode="md" class="fat-btn mb-sm" (click)="utils.openModalDetail()">{{'btn.read.more'| translate}}</ion-button>
+              <ion-button mode="md" class="fat-btn mb-sm" (click)="utils.openModalClassDetail(true,false,true)">
+                {{'btn.read.more'|
+                translate}}</ion-button>
             </ion-card>
           </ion-slide>
           <ion-slide>
@@ -150,15 +154,16 @@
           facere. Ullam aperiam beatae facere?
         </div>
         <div class="button flex flex-jc-c mt-m">
-          <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
+          <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn">{{'btn.read.more'| translate}}
+          </ion-button>
         </div>
       </ion-col>
     </ion-row>
     <ion-row class="ion-no-padding contact-row">
       <ion-col class="ion-padding" size="12">
         <p class="t-center"><a #title3 class="underlined underlined--thick">
-          ¿Por qué debería comenzar a entrenar Jiu Jitsu?
-        </a></p>
+            ¿Por qué debería comenzar a entrenar Jiu Jitsu?
+          </a></p>
         <div class="message mt-sm flex flex-jc-c t-center">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
@@ -170,10 +175,11 @@
           facere. Ullam aperiam beatae facere?
         </div>
         <div class="button flex flex-jc-c mt-m">
-          <ion-button (click)="utils.openModalDetail()" mode="md" class="fat-btn">{{'btn.read.more'| translate}}</ion-button>
+          <ion-button (click)="utils.openModalDetail()" mode="md" class="fat-btn">{{'btn.read.more'| translate}}
+          </ion-button>
         </div>
       </ion-col>
-      <ion-col size="12" class="ion-padding mt-sm pt-m">
+      <ion-col size="12" class="ion-padding mt-sm pt-m" id="anchorName">
         <div>
           {{'contact.label'| translate}}
         </div>

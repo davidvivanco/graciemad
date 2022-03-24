@@ -3,6 +3,7 @@ import { SafariViewController } from '@awesome-cordova-plugins/safari-view-contr
 import { ModalController, Platform } from '@ionic/angular';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { DetailsComponent } from '../components/details/details.component';
+import { DetailsClassComponent } from '../components/details-class/details-class.component';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,22 @@ export class UtilsService {
   async openModalDetail() {
     const modal = await this.modalController.create({
       component: DetailsComponent,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+
+  async openModalClassDetail(
+    noShowGi: boolean,
+    noShowGrappling: boolean,
+    noShowMMA: boolean) {
+    const modal = await this.modalController.create({
+      component: DetailsClassComponent,
+      componentProps: {
+        noShowGi,
+        noShowMMA,
+        noShowGrappling
+      },
       cssClass: 'my-custom-class'
     });
     return await modal.present();

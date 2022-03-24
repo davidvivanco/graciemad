@@ -59,7 +59,11 @@
 
     ion-grid {
         .our-classes-row {
+            ion-col:nth-child(1) {
+                padding-top: 0;
+            }
             ion-col:nth-child(2) {
+                padding-bottom: 30px;
                 background: #f1f2ed;
                 ion-card {
                     width: 100%;

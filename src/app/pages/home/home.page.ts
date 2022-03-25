@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { IonContent, IonSlides, MenuController, ScrollCustomEvent } from '@ionic/angular';
+import { IonCard, IonContent, IonSlides, MenuController, ScrollCustomEvent } from '@ionic/angular';
 import { ScrollContentService } from 'src/app/shared/services/scroll-content.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
 
@@ -13,7 +13,7 @@ import { UtilsService } from 'src/app/shared/services/utils.service';
 export class HomePage implements OnInit {
   @HostListener('ionScroll', ['$event']) onContentScroll($event: ScrollCustomEvent) {
     let scrollTop = $event.detail.scrollTop
-    if(scrollTop > 90) this.swipe.el.style.setProperty('animation', null);
+    if (scrollTop > 90) this.swipe.el.style.setProperty('animation', null);
     if (scrollTop > 270) this.socialMediaBar.el.style.setProperty('display', 'flex');
     else this.socialMediaBar.el.style.setProperty('display', 'none');
     if (scrollTop > 140) this.title1.classList.add("marking");
@@ -28,7 +28,6 @@ export class HomePage implements OnInit {
   @ViewChild('swipe') swipe;
   @ViewChild('socialMediaBar') socialMediaBar;
   @ViewChild(IonContent, { static: false }) content: IonContent;
-  @ViewChild('slider') slider: IonSlides;
 
   slideOpts;
   readonly urlGoogleMaps: string;
@@ -39,6 +38,10 @@ export class HomePage implements OnInit {
   year: string;
   formGroup: FormGroup;
   orientation: OrientationType;
+  flipped1: boolean;
+  flipped2: boolean;
+  flipped3: boolean;
+  flipped4: boolean;
 
   constructor(
     public utils: UtilsService,
@@ -47,6 +50,10 @@ export class HomePage implements OnInit {
     private screenOrientation: ScreenOrientation,
     private formBuilder: FormBuilder
   ) {
+    this.flipped1 = false;
+    this.flipped2 = false;
+    this.flipped3 = false;
+    this.flipped4 = false;
     this.urlGoogleMaps = 'https://www.google.com/maps/place/Ichi+Ban/@40.4831372,-3.3715561,17z/data=!3m1!4b1!4m5!3m4!1s0xd42490d570d5ac5:0x67c261a96ee0fdf2!8m2!3d40.4831034!4d-3.3694483';
     this.urlFacebook = 'https://www.facebook.com/graciemadridbjj/';
     this.urlInstagram = 'https://www.instagram.com/gracie_madrid_academy/';
@@ -81,9 +88,9 @@ export class HomePage implements OnInit {
     this.screenOrientation.onChange().subscribe((e) => {
       this.orientation = this.screenOrientation.type as OrientationType
     })
-      setTimeout(() => {
-         this.swipe.el.style.setProperty('animation', 'spin 6s infinite');
-      },5000);
+    setTimeout(() => {
+      this.swipe.el.style.setProperty('animation', 'spin 6s infinite');
+    }, 5000);
   }
 
   ngAfterViewInit(): void {
@@ -91,8 +98,6 @@ export class HomePage implements OnInit {
     this.title1 = this.title1.nativeElement;
     this.title2 = this.title2.nativeElement;
     this.title3 = this.title3.nativeElement;
-    console.log(this.swipe)
-    this.swipe = this.swipe;
   }
 
   send() {
@@ -119,9 +124,27 @@ export class HomePage implements OnInit {
     this.utils.openUrl(this.urlInstagram)
   }
 
-  async onSlideChanged() {
-    const index = await this.slider.getActiveIndex();
-    console.log(await this.slider.getActiveIndex())
-    this.slider.lockSwipeToNext(index === 2);
+
+  rotateCard(card, cardNumber: number) {
+    console.log(card)
+
+    switch (cardNumber) {
+      case 1:
+        this.flipped1 = !this.flipped1;
+        break;
+      case 2:
+        this.flipped2 = !this.flipped2;
+        break;
+      case 3:
+        this.flipped3 = !this.flipped3;
+        break;
+      case 4:
+        this.flipped4 = !this.flipped4;
+        break;
+      default:
+        break;
+    }
+
+    card.el.classList.toggle("flipped")
   }
 }

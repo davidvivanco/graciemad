@@ -43,7 +43,7 @@ body {
 .calendar {
     background: var(--calendar-background, #2b4450);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    height: var(--calendar-height, 300px);
+    height: var(--calendar-height, 320px);
     perspective: 1000;
     transition: 0.9s;
     transform-style: preserve-3d;
@@ -84,10 +84,16 @@ body {
 }
 
 .current-date h1,
+.rates h1 ,
 .legend h1 {
     color: #dfebed;
     font-size: 1.4em;
     font-weight: 300;
+}
+
+.rates{
+    padding-top: 10px;
+    padding-left: 40px;
 }
 
 .week-days-container {
@@ -136,6 +142,7 @@ body {
 
 .day-off {
     opacity: 0.3;
+    align-items: center;
 }
 
 .weeks span.active {

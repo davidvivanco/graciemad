@@ -59,6 +59,14 @@
 
     ion-grid {
         .our-classes-row {
+            ion-card {
+                transition: transform 0.8s;
+                transform-style: preserve-3d;
+            }
+            ion-content {
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
             ion-col:nth-child(1) {
                 padding-top: 0;
             }
@@ -235,9 +243,9 @@
 
 .flipped {
     opacity: 1;
-    -webkit-transform:rotateY(180deg);
-    -moz-transform:rotateY(180deg);
-    -o-transform:rotateY(180deg) ;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
 }
 
 .card-back {
@@ -273,7 +281,6 @@
     height: 3px;
     bottom: 40px;
     left: 18px;
-  
 }
 
 .badge-col {

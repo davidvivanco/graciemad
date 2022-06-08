@@ -6,23 +6,22 @@
 }
 
 .slide-in-right.ng-enter,
-.slide-in-right>.ng-enter {
+.slide-in-right > .ng-enter {
     -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
     transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
 }
 
 .slide-in-right.ng-enter-active,
-.slide-in-right>.ng-enter-active {
+.slide-in-right > .ng-enter-active {
     -webkit-transform: translateX(0);
     transform: translateX(0);
 }
 
 .slide-in-right.ng-leave,
-.slide-in-right>.ng-leave {
+.slide-in-right > .ng-leave {
     -webkit-transition: all ease-in-out 250ms;
     transition: all ease-in-out 250ms;
 }
-
 
 /* Modal animation end */
 
@@ -62,8 +61,6 @@
     animation-name: fadeIn;
 }
 
-
-
 @-webkit-keyframes fadeOut {
     from {
         opacity: 1;
@@ -87,7 +84,6 @@
     animation-name: fadeOut;
 }
 
-
 ion-tab-button {
     --ripple-color: var(--ion-color-medium);
     --color: var(--ion-color-dark);
@@ -103,32 +99,52 @@ ion-tab-button.tab-selected {
     --ion-item-background: var(--ion-color-light-shade);
 }
 
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
-@-ms-keyframes spin { 
-    from { 
-        -ms-transform: rotate(0deg); 
-    } to { 
-        -ms-transform: rotate(360deg); 
-    }
+@keyframes type {
+    from {
+        width: 0
+      }
 }
-@-moz-keyframes spin { 
-    from { 
-        -moz-transform: rotate(0deg); 
-    } to { 
-        -moz-transform: rotate(360deg); 
+
+@keyframes rightToLeft {
+    0% {
+      transform: translateX(200px);
     }
-}
-@-webkit-keyframes spin { 
-    from { 
-        -webkit-transform: rotate(0deg); 
-    } to { 
-        -webkit-transform: rotate(360deg); 
+    100% {
+      transform: translateX(-400px);
     }
-}
-@keyframes spin { 
-    from { 
-        transform: rotate(0deg); 
-    } to { 
-        transform: rotate(360deg); 
-    }
-}
+  }
+
+

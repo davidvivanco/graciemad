@@ -1,0 +1,169 @@
+<ion-header collapse="fade" class="ion-no-border main-header" [translucent]="true">
+  <ion-toolbar class="animation fadeIn">
+    <ion-title *ngIf="state.readMoreType === 'history'">
+      <h3>Historia del Jiu-Jitsu</h3>
+    </ion-title>
+    <ion-title *ngIf="state.readMoreType === 'benefits'">
+      <h3>Beneficios del Jiu-Jitsu</h3>
+    </ion-title>
+    <ion-title *ngIf="state.readMoreType === 'mma'">
+      <h3>Artes Marciales Mixtas</h3>
+    </ion-title>
+    <ion-title *ngIf="state.readMoreType === 'agustin'">
+      <h3>Agustin Mesa</h3>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""> </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="state.readMoreType === 'history'">
+  <ion-row class="ion-padding ion-justify-content-center">
+    <div class="img">
+      <img src="assets/images/helio.png" />
+    </div>
+  </ion-row>
+  <ion-row class="ion-justify-content-center blockquote">
+    <blockquote>
+      Siempre asume que tu oponente será más grande, más fuerte y más rápido que tu; para que aprendas a confiar en la
+      técnica, el tiempo y el apalancamiento en lugar del a fuerza bruta.
+    </blockquote>
+    <div class="bold">- Helio Gracie - </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <div>
+      El Jiu-Jitsu comenzó hace muchos años en la India en la época de los monjes budistas. Los budistas que viajaban
+      siempre eran asaltados y para evitarlo, inventaron una forma de defensa conocida como el Jiu-Jitsu. La palabra
+      <strong>Jiu-Jitsu significa arte suave</strong> y tiene tres principios básicos: la técnica, la palanca y la base.
+      Después de la India se fue a China y luego a Japón.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <div>
+      Mitsuyo Maeda, conocido como "Conde Koma", fue un gran practicante de Judo y Jiu Jitsu en los primeros días de
+      este. Después de viajar por varios países con su grupo, llegó a Brasil en 1914; una excursión de combatientes
+      japoneses llegó a Manaus para iniciar la misión liderada por Maeda, para difundir el judo en Brasil; uno de los
+      japoneses, Sanshiro “Black Belly” Satake, se quedó en Manaus y abrió la primera academia brasileña de judo, Maeda
+      fue a Belém do Pará, donde se instaló
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit mb-m">
+    <div>
+      Un año después, conoció a Gastão Gracie. Gastão era padre de ocho hijos, cinco hombres, muy entusiasmado con el
+      arte marcial llevó a su hijo Carlos Gracie a aprender la lucha japonesa. Carlos Gracie aprendió Jiu-Jitsu con
+      Mitsuyo Maeda, <strong>
+        Helio Gracie al ser demasiado delgado y de tamaño pequeño adaptó el Jiu Jitsu junto con su hermano
+        Carlos</strong>, creando así un nuevo arte marcial que marcaría el futuro de las Artes Marciales, el Gracie Jiu
+      Jitsu.
+
+    </div>
+  </ion-row>
+</ion-content>
+
+<ion-content *ngIf="state.readMoreType === 'mma'">
+  <ion-row class="ion-padding ion-justify-content-center">
+    <div class="img">
+      <img src="assets/images/gloves.jpg" />
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <div>
+      Las artes marciales mixtas se han convertido en el deporte de combate de más rápido crecimiento a nivel mundial y
+      ahora disfrutan de un estatus generalizado en la mayor parte del mundo. Las artes marciales mixtas comenzaron como
+      una plataforma donde los combatientes con diferentes estilos de lucha
+      podían probar sus habilidades entre sí en una búsqueda para demostrar qué arte marcial era el mejor.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <div>
+      El deporte ha evolucionado mucho desde aquellos días. El luchador moderno de MMA está bien versado en diferentes
+      estilos de lucha como Brazilian Jiu-Jitsu, Muay Thai, Boxing, Wrestling y más. Muchos dirían que MMA es el sistema
+      de defensa personal más completo del mundo, ya que te enseña cómo defenderte de manera efectiva sin importar dónde
+      termines en un escenario de defensa personal
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit pb-sm">
+    <div>
+      Se trata de una disciplina muy completa ya que alberga muchas artes marciales. Dentro del mismo combate se pueden
+      llevar a cabo el uso y empleo de varias técnicas de pelea y estilos. Se puede pelear tanto de pie como en el suelo, y en cada momento
+      se pueden emplear diferentes técnicas en función de la posición en la que se encuentren.
+    </div>
+  </ion-row>
+</ion-content>
+
+
+<ion-content *ngIf="state.readMoreType === 'benefits'">
+  <ion-row class="ion-padding ion-justify-content-center">
+    <div class="img">
+      <img src="assets/images/jiu-jitsu.jpg" />
+    </div>
+  </ion-row>
+  <!-- <ion-row class="ion-justify-content-center">
+    <blockquote>
+      No hay perdida en el Jiu-Jitsu. O ganas o aprendes.
+    </blockquote>
+    <div class="bold">- Carlos Gracie, Sr - </div>
+  </ion-row> -->
+
+  <ion-row class="ion-padding t-inherit">
+    <h6><strong>1. Acondicionamiento físico </strong></h6>
+    <div>
+      Si bien el Jiu-jitsu brasileño recibe el apodo de "el arte suave", es increíblemente exigente,
+      tanto física como mentalmente. Los luchadores deben tener resistencia, flexibilidad, fuerza, potencia y
+      equilibrio.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <div>
+      Por supuesto, con la práctica, su acondicionamiento mejora, sus músculos se fortalecen. Como con la mayoría de las
+      cosas en la vida, las
+      dificultades son las que nos hacen más fuertes lo que te ayuda a convertirte en una persona más atlética y en
+      forma.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <h6><strong>2. Increibles habilidades de defensa personal</strong> </h6>
+    <div>
+      El Jiu-Jitsu brasileño te brinda algo extraordinario: la capacidad de defenderte a ti mismo y a tus seres queridos
+      de las amenazas externas.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <div>
+      El Jiu-jitsu brasileño es superior a otras artes marciales en este sentido porque las tácticas y técnicas giran en
+      torno a vencer a los oponentes sin causarles necesariamente daño. Esto hace que el Jiu-jitsu brasileño sea la
+      opción de facto para aprender defensa personal, especialmente para las
+      mujeres.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <h6><strong>3. Mejora la salud mental </strong></h6>
+    <div>
+      Practicar jiu-jitsu brasileño es una forma fantástica de mejorar nuestra salud mental y mantenerla elevada debido
+      a que existe un sentimiento inherente de progresión y
+      realización.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <div>
+      Gracias al factor social, también pasamos tiempo con personas positivas y afines que afectan profundamente nuestra
+      perspectiva y visión del mundo.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit">
+    <h6><strong>4. Disciplina y respeto </strong></h6>
+    <div>
+      Uno de los beneficios más notables del entrenamiento de BJJ es que te vuelves más disciplinado y mentalmente más
+      fuerte. Convertirse en un luchador de BJJ competente es un proceso largo y exigente que requiere sacrificio,
+      consistencia, lidiar con contratiempos y más.
+    </div>
+  </ion-row>
+  <ion-row class="ion-padding t-inherit mb-m">
+    <div>
+      Esto ayuda a convertirse en una persona más disciplinada y preparada para enfrentar los desafíos de la vida con
+      aplomo y que no tiene miedo de trabajar duro hasta tener éxito. Practicar BJJ también enseña humildad y muestra
+      respeto a los demás, tanto a los compañeros de entrenamiento como a los oponentes en el tatami.
+    </div>
+  </ion-row>
+</ion-content>

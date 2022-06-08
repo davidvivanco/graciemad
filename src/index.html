@@ -3,27 +3,43 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <title>Gracie Madrid</title>
 
   <base href="/" />
 
   <meta name="color-scheme" content="light dark" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bubblegum+Sans&family=Caveat+Brush&family=Lato:wght@400;700&family=Marck+Script&family=Roboto+Condensed:wght@700&family=Roboto:wght@500;900&family=Smooch&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bubblegum+Sans&family=Caveat+Brush&family=Lato:wght@400;700&family=Marck+Script&family=Roboto:wght@500;900&family=Smooch&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Bubblegum+Sans&family=Caveat+Brush&family=Marck+Script&family=Roboto:wght@500;900&family=Smooch&display=swap"
+    rel="stylesheet">
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <script src="https://maps.google.com/maps/api/js?key=AIzaSyCfoeojoal23JW4PBBEIKshVGraBo8CkJQ"></script>
 </head>
 
 <body>
   <app-root></app-root>
+  <script>
+      document.body.classList.toggle('dark', true);
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      prefersDark.addListener((e) => checkToggle(e.matches));
+
+  </script>
 </body>
 
 </html>

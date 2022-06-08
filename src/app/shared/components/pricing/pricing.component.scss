@@ -1,0 +1,170 @@
+@import '../../../../theme/utils/utils.scss';
+
+.our-classes {
+    padding: 20px;
+    .title {
+        margin-top: 0.3rem;
+    }
+
+    ion-slide {
+        padding-right: 10px;
+        padding-left: 10px;
+        max-width: 250px;
+    }
+}
+
+.flip-card {
+    background-color: white;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+
+    @include screen-custom(540px, 900px) {
+        height: 340px;
+    }
+
+    ion-icon[name="person-outline"] {
+        margin-top: 2px;
+        font-size: 46px;
+    }
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card .flip-card-inner.flipped {
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+
+    img {
+        width: 23%;
+    }
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .btn {
+        margin-left: 10px;
+        margin-right: 10px;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 10px;
+    }
+}
+
+.flip-card-back {
+    .btn {
+        flex-grow: 0;
+    }
+
+    ion-label {
+        font-size: 0.9rem;
+    }
+
+    ion-icon[name="person-outline"] {
+        margin-top: 2px;
+        font-size: 46px;
+    }
+
+    .badge {
+        color: white;
+        background: var(--ion-color-primary);
+        border-radius: 100px;
+        padding: 12px;
+        width: 75px;
+        height: 75px;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+        position: relative;
+        flex-direction: column;
+
+        span:nth-child(2) {
+            display: block;
+            font-size: 13px;
+            position: absolute;
+            top: 38px;
+            right: 30px;
+        }
+
+        span:nth-child(2).private {
+            right: 23px;
+        }
+    }
+
+    .badge::after {
+        content: "";
+        background-color: white;
+        width: 37%;
+        position: absolute;
+        height: 3px;
+        bottom: 36.5px;
+        left: 18px;
+    }
+
+    .badge-col {
+        background: white !important;
+        flex-grow: 1;
+    }
+}
+
+.flip-card-front {
+    .header {
+        .title {
+            font-weight: 600;
+            font-size: 1.3rem;
+
+            @media only screen and (device-width : 414px) and (device-height : 736px) and (-webkit-device-pixel-ratio : 3) {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .text {
+        padding: 20px;
+        padding-top: 0;
+        padding-bottom: 0;
+        text-align: center;
+        font-size: 0.75rem;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-overflow: ellipsis;
+        @include screen-desktop {
+            font-size: 0.8rem;
+        }
+        @include screen-custom(374px, 399px) {
+            font-size: 0.8rem;
+        }
+
+        @include screen-custom(400px, 1000px) {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}

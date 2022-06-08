@@ -1,0 +1,143 @@
+
+  <div class="main">
+    <div class="seminar">
+      <div class="form">
+        <app-seminar-form></app-seminar-form>
+      </div>
+      <div class="robin">
+        <img src="assets/images/robin_banner.png" alt="">
+      </div>
+    </div>
+    <div class="reading">
+      <ion-list>
+        <div class="flex flex-ai-c">
+          <ion-icon name="book-sharp"></ion-icon>
+          <span class="ml-s bold t-upper"> {{'section1.title' | translate}}</span>
+        </div>
+        <div class="flex js-s mt-sm item" (click)="utils.openReadMore('history',state)">
+          <div slot="start" class="label flex flex-column jc-e">
+            <div class="bold">{{'section1.p1.title' | translate}}</div>
+            <div class="mt-xxs w-90">{{'section1.p1.pre.text.web' | translate}}
+            </div>
+            <div class="mt-xxs time-to-read"> 4m {{'time.to.read' | translate}}</div>
+          </div>
+          <div>
+            <img width="110" height="110" src="assets/images/helio.png" />
+          </div>
+        </div>
+        <div class="flex js-s mt-sm item" (click)="utils.openReadMore('benefits',state)">
+          <div slot="start" class="label flex flex-column jc-e">
+            <div class="bold">{{'section1.p2.title' | translate}}</div>
+            <div class="mt-xxs w-90">
+              {{'section2.p2.pre.text.web' | translate}}
+            </div>
+            <div class="mt-xxs time-to-read"> 5m {{'time.to.read' | translate}}</div>
+          </div>
+          <div>
+            <img width="110" height="110" src="assets/images/jiu-jitsu.jpg" />
+          </div>
+        </div>
+        <div class="flex js-s mt-sm item" (click)="utils.openReadMore('mma',state)">
+          <div slot="start" class="label flex flex-column jc-e">
+            <div class="bold">{{'section1.p3.title' | translate}}</div>
+            <div class="mt-xxs w-90">
+              {{'section3.p3.pre.text.web' | translate}}
+            </div>
+            <div class="mt-xxs time-to-read"> 4m {{'time.to.read' | translate}}</div>
+          </div>
+          <div>
+            <img width="110" height="110" src="assets/images/gloves.jpg" />
+          </div>
+        </div>
+      </ion-list>
+    </div>
+  </div>
+  <div class="pricing">
+    <app-pricing [slideOpts]="{allowTouchMove: false}"></app-pricing>
+  </div>
+  <div class="calendar">
+    <div class="mr-m calendar-container">
+      <app-calendar></app-calendar>
+    </div>
+    <div class="legend mt-sm">
+      <div class="flex flex-ai-c">
+        <img class="gi" src="assets/images/gi.svg" />
+        <div class="ml-sm fs21">Jiu-Jitsu</div>
+      </div>
+      <div class="flex flex-ai-c">
+        <img class="gi" src="assets/images/grappling.png" />
+        <div class="ml-sm fs21">Grappling</div>
+      </div>
+      <div class="flex flex-ai-c">
+        <img class="gi" src="assets/images/mma.png" />
+        <div class="ml-sm fs21">MMA</div>
+      </div>
+      <div class="flex flex-ai-c">
+        <ion-icon size="large" class="ml-s" slot="start" name="person-outline"></ion-icon>
+        <div class="ml-sm fs21">{{'pricing.private.title' | translate}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="contact">
+    <div class="where-we-are">
+      <div>
+        <div class="flex text">
+          <ion-icon name="navigate" color="secondary"></ion-icon>
+          <span class="ml-s bold t-upper title"> {{'where.we.are' | translate}}
+          </span>
+        </div>
+        <div class="mt-s address">
+          C. de San Bernardo, 4, 28801 Alcalá de Henares<br><span>Madrid - {{'gym' | translate}} Ichi-Ban </span>
+        </div>
+        <div class="map mt-sm">
+          <iframe width="550" height="350" id="gmap_canvas" [src]="utils?.urlGoogleMaps" frameborder="0" scrolling="no"
+            marginheight="0" marginwidth="0"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="send-email">
+      <div>
+        <div class="flex ml-s">
+          <ion-icon name="mail" color="secondary"></ion-icon>
+          <span class="ml-s bold t-upper title"> {{'contact.label' | translate}}
+          </span>
+        </div>
+        <div class="ml-s">
+          {{'contact.desc'| translate}}
+        </div>
+        <form [formGroup]="formGroup" *ngIf="formGroup" class="mt-sm">
+          <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
+            <ion-label position="stacked">{{'form.email.label' |translate}}</ion-label>
+            <ion-input formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item class="mt-sm"
+            [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['message']?.errors?.required}">
+            <ion-label position="stacked">{{'form.message.label' |translate}}</ion-label>
+            <ion-textarea maxlength="30" formControlName="message" [rows]="4"></ion-textarea>
+          </ion-item>
+        </form>
+        <div class="flex flex-jc-c mt-sm mb-s">
+          <ion-button mode="md" (click)="send()"
+           expand="block" color="secondary" class="fat-btn">{{'btn.send' |translate}}
+          </ion-button>
+        </div>
+      </div>
+      <div class="flex flex-jc-c flex-ai-c w100 mt-m follow-us">
+        <div class="flex ml-sm">
+          <ion-icon name="person-add" color="secondary"></ion-icon>
+          <span class="bold t-upper title"> {{'social.media.follow' | translate}}
+          </span>
+        </div>
+        <div class="flex flex-jc-c flex-ai-c ml-s">
+          <ion-icon (click)="utils?.openFacebook()" class="fs21 ml-s" name="logo-facebook"></ion-icon>
+          <ion-icon (click)="utils?.openInstagram()" class="ml-sm fs21" name="logo-instagram"></ion-icon>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="footer">
+    <div class="year">{{year}} <span> - </span>
+      © Gracie Madrid - <small class="bold">EST.2019</small></div>
+  </div>
+ 

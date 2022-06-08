@@ -34,6 +34,71 @@ $tablet-breakpoint: 960px;
   }
 }
 
+@mixin screen-iphoneSE {
+  @media only screen and (width : 320px) and (height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin screen-iphoneXR {
+  @media only screen and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
+    @content;
+
+  }
+}
+
+@mixin screen-iphone8 {
+  @media only screen and (width : 375px) and (height: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin screen-iphone8-plus {
+  @media only screen and (width : 414px) and (height: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+
+@mixin screen-iphone12-pro {
+  @media only screen and (width : 390px)
+   and (height: 844px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+/*Galaxy S7 and S8 */
+@mixin screen-samnsungS8-plus {
+  @media only screen and (min-device-width : 360px) 
+  and (max-device-width : 740px)  and (-webkit-min-device-pixel-ratio: 4) {
+    @content;
+  }
+}
+
+/*Galaxy S20 ultra */
+@mixin screen-samnsungS20-ultra {
+  @media only screen and (min-device-width : 412px) 
+  and (max-device-width : 915px)  and (-webkit-min-device-pixel-ratio: 3.5) {
+    @content;
+  }
+}
+
+@mixin screen-galaxy-fold {
+  @media only screen and (min-device-width : 280px) 
+  and (max-device-width : 653px)  and (-webkit-min-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+@mixin screen-surface-pro7 {
+  @media only screen and (min-device-width : 912px) 
+  and (max-device-width : 1368px)  and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+
+
 // Custom screen media query, only use it when some
 // device resolution significantly breaks the design
 @mixin screen-custom($min, $max) {

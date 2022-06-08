@@ -1,344 +1,50 @@
-<ion-header id="main-header" collapse="fade" class="ion-no-border" [translucent]="true">
-  <ion-toolbar #toolbar>
-    <ion-thumbnail class="logo">
-      <img src="assets/images/logo.png" />
-    </ion-thumbnail>
-    <ion-icon #menuIconHeader (click)="openMenu()" slot="end" class="mr-s" size="large" name="menu"></ion-icon>
+<ion-header collapse="fade" class="ion-no-border main-header hide-desktop" [translucent]="true">
+  <ion-toolbar class="animation fadeIn header-mobile" #toolbar>
+    <div class="flex flex-ai-c">
+      <div class="logo-container">
+        <ion-avatar class="logo header_logo">
+          <img src="assets/images/logo.png" />
+        </ion-avatar>
+      </div>
+      <div class="header_title">Gracie Madrid</div>
+    </div>
+    <ion-icon #menuIcon (click)="openMenu()" slot="end" class="mr-s menu-icon" size="large" name="menu"></ion-icon>
   </ion-toolbar>
 </ion-header>
-<ion-content id="main-content" scrollEvents="true" fullscreen="true" [appFadeHeader]="toolbar"
-  [menuIconHeader]="menuIconHeader" [menuIcon]="menuIcon">
-  <ion-buttons mode="md" #socialMediaBar class="social-media-nav animated fadeIn" color="primary">
-    <ion-button mode="md" class="facebook-color" (click)="openFacebook()">
-      <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
-    </ion-button>
-    <ion-button mode="md" class="instagram-color" (click)="openInstagram()">
-      <ion-icon slot="icon-only" name="logo-instagram"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  <div class="banner">
-    <ion-icon (click)="openMenu()" #menuIcon color="light" slot="end" class="menu-icon" size="large" name="menu">
-    </ion-icon>
-    <ion-grid class="ion-no-padding">
-      <ion-col class="label-col flex flex-column pt-l mt-sm">
-        <div class="title-effect3s">Gracie</div>
-        <div class="title-effect4s">Madrid <small>Jiu-Jitsu - EST.2018</small></div>
-      </ion-col>
-      <ion-col class="swipe-col mt-s flex ion-justify-content-center flex-column flex-ai-c">
-        <div class="flex img-box mb-s">
-          <img src="/assets/images/banner2.jpg" alt="">
-        </div>
-        <div class="swipe mt-s">
-          Swipe
-        </div>
-        <ion-icon (click)="scrollContent.scrollTo(1000)" #swipe size="large" name="arrow-down-outline"></ion-icon>
-      </ion-col>
-    </ion-grid>
-  </div>
-  <ion-grid class="ion-no-padding">
-    <ion-row class="ion-no--padding our-classes-row">
-      <ion-col class="ion-padding" size="12">
-        <p class="t-center"><a #title1 class="underlined underlined--thick">
-            {{'section1.title'| translate}}
-          </a></p>
-        <div class="message mt-sm flex flex-jc-c t-center">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
-          facere. Ullam aperiam beatae facere?
-        </div>
-        <div class="message flex flex-jc-c t-center mt-sm">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
-          facere. Ullam aperiam beatae facere?
-        </div>
-        <div class="button flex flex-jc-c mt-m">
-          <ion-button mode="md" class="fat-btn" (click)="utils.openModalDetail()"> {{'btn.read.more'| translate}}
-          </ion-button>
-        </div>
-      </ion-col>
-      <ion-col class="mt-m ion-padding" size="12">
-        <div class="our-classes-title">
-          Nuestras clases
-        </div>
-        <ion-slides #slider [options]="slideOpts">
-          <ion-slide>
-            <ion-card #card1>
-              <img [ngClass]="{'card-back':flipped1}" class="mt-sm" src="assets/images/gi.svg" />
-              <ion-card-header class="pt-s" >
-                <ion-card-title [ngClass]="{'mt-sm':flipped1}" *ngIf="!flipped1">Jiu-Jitsu</ion-card-title>
-              </ion-card-header>
-              <ion-card-content class="text-center" *ngIf=!flipped1>
-                <span class="show-mobile">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti,
-                  esse
-                  amet consectetur est delectus...
-                </span>
-                <span class="show-tablet">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
-                </span>
-              </ion-card-content>
-              <ion-card-content class="text-center card-back" *ngIf=flipped1>
-                <div class="flex flex-column">
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    3 horas a la semana
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Sin matrícula
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Vestuario completo
-                  </ion-label>
-                </div>
-                <ion-col class=" mt-sm flex flex-jc-c flex-ai-c badge-col">
-                  <div class="badge">
-                    <span>45€</span>
-                    <span>MES</span>
-                  </div>
-                </ion-col>
-              </ion-card-content>
-              <ion-button [ngClass]="{'card-back':flipped1}" mode="md" (click)="rotateCard(card1,1)" class="fat-btn mb-sm">
-                <span *ngIf="!flipped1">Tarifas</span>
-                <span *ngIf="flipped1"> Volver</span>
-              </ion-button>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card #card2>
-              <img [ngClass]="{'card-back':flipped2}" class="mt-sm" src="assets/images/mma.png" />
-              <ion-card-header class="pt-s" >
-                <ion-card-title [ngClass]="{'mt-sm':flipped2}" *ngIf="!flipped2">MMA</ion-card-title>
-              </ion-card-header>
-              <ion-card-content class="text-center" *ngIf=!flipped2>
-                <span class="show-mobile">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti,
-                  esse
-                  amet consectetur est delectus...
-                </span>
-                <span class="show-tablet">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
-                </span>
-              </ion-card-content>
-              <ion-card-content class="text-center card-back" *ngIf=flipped2>
-                <div class="flex flex-column">
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    3 horas a la semana
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Sin matrícula
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Vestuario completo
-                  </ion-label>
-                </div>
-                <ion-col class=" mt-sm flex flex-jc-c flex-ai-c badge-col">
-                  <div class="badge">
-                    <span>45€</span>
-                    <span>MES</span>
-                  </div>
-                </ion-col>
-              </ion-card-content>
-              <ion-button [ngClass]="{'card-back':flipped2}" mode="md" (click)="rotateCard(card2,2)" class="fat-btn mb-sm">
-                <span *ngIf="!flipped2">Tarifas</span>
-                <span *ngIf="flipped2"> Volver</span>
-              </ion-button>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card #card3>
-              <img [ngClass]="{'card-back':flipped3}" class="mt-sm" src="assets/images/grappling.png" />
-              <ion-card-header class="pt-s" >
-                <ion-card-title [ngClass]="{'mt-sm':flipped3}" *ngIf="!flipped3">Grappling</ion-card-title>
-              </ion-card-header>
-              <ion-card-content class="text-center" *ngIf=!flipped3>
-                <span class="show-mobile">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti,
-                  esse
-                  amet consectetur est delectus...
-                </span>
-                <span class="show-tablet">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
-                </span>
-              </ion-card-content>
-              <ion-card-content class="text-center card-back" *ngIf=flipped3>
-                <div class="flex flex-column">
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    3 horas a la semana
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Sin matrícula
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Vestuario completo
-                  </ion-label>
-                </div>
-                <ion-col class=" mt-sm flex flex-jc-c flex-ai-c badge-col">
-                  <div class="badge">
-                    <span>45€</span>
-                    <span>MES</span>
-                  </div>
-                </ion-col>
-              </ion-card-content>
-              <ion-button [ngClass]="{'card-back':flipped3}" mode="md" (click)="rotateCard(card3,3)" class="fat-btn mb-sm">
-                <span *ngIf="!flipped3">Tarifas</span>
-                <span *ngIf="flipped3"> Volver</span>
-              </ion-button>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card #card4>
-              <img [ngClass]="{'card-back':flipped4}" class="mt-sm" src="assets/images/gi.svg" />
-              <img [ngClass]="{'card-back':flipped4}" class="mt-sm" src="assets/images/mma.png" />
-              <ion-card-header class="pt-s" >
-                <ion-card-title [ngClass]="{'mt-sm':flipped4}" *ngIf="!flipped4">Jiu-Jitsu + MMA</ion-card-title>
-              </ion-card-header>
-              <ion-card-content class="text-center" *ngIf=!flipped4>
-                <span class="show-mobile">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque. Dignissimos sunt id deleniti,
-                  esse
-                  amet consectetur est delectus...
-                </span>
-                <span class="show-tablet">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laboriosam deleniti aliquam, incidunt
-                  nesciunt dolorem laborum sed delectus atque perspiciatis doloremque...
-                </span>
-              </ion-card-content>
-              <ion-card-content class="text-center card-back" *ngIf=flipped4>
-                <div class="flex flex-column">
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    6 horas a la semana
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Sin matrícula
-                  </ion-label>
-                  <ion-label>
-                    <ion-icon color="success" name="checkmark-outline"></ion-icon>
-                    Vestuario completo
-                  </ion-label>
-                </div>
-                <ion-col class=" mt-sm flex flex-jc-c flex-ai-c badge-col">
-                  <div class="badge">
-                    <span>70€</span>
-                    <span>MES</span>
-                  </div>
-                </ion-col>
-              </ion-card-content>
-              <ion-button [ngClass]="{'card-back':flipped4}" mode="md" (click)="rotateCard(card4,4)" class="fat-btn mb-sm">
-                <span *ngIf="!flipped4">Tarifas</span>
-                <span *ngIf="flipped4"> Volver</span>
-              </ion-button>
-            </ion-card>
-          </ion-slide>
-        </ion-slides>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-no-padding schedule-row">
-      <ion-col class="ion-no-padding" size="12">
-        <app-calendar></app-calendar>
-      </ion-col>
-      <ion-col class="ion-padding" size="12">
-        <p class="t-center"><a #title2 class="underlined underlined--thick">
-            Sobre nosotros </a></p>
 
-        <div class="message mt-sm flex flex-jc-c t-center">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
-          facere. Ullam aperiam beatae facere?
-        </div>
-        <div class="message flex flex-jc-c t-center mt-sm">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
-          facere. Ullam aperiam beatae facere?
-        </div>
-        <div class="button flex flex-jc-c mt-m">
-          <ion-button mode="md" (click)="utils.openModalDetail()" class="fat-btn">{{'btn.read.more'| translate}}
-          </ion-button>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-no-padding contact-row">
-      <ion-col class="ion-padding" size="12">
-        <p class="t-center"><a #title3 class="underlined underlined--thick">
-            ¿Por qué debería comenzar a entrenar Jiu Jitsu?
-          </a></p>
-        <div class="message mt-sm flex flex-jc-c t-center">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
-          facere. Ullam aperiam beatae facere?
-        </div>
-        <div class="message flex flex-jc-c t-center mt-sm">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Fuga sit ipsa unde reiciendis est maxime fugiat fugit optio illo quod. Est possimus temporibus alias incidunt
-          facere. Ullam aperiam beatae facere?
-        </div>
-        <div class="button flex flex-jc-c mt-m">
-          <ion-button (click)="utils.openModalDetail()" mode="md" class="fat-btn">{{'btn.read.more'| translate}}
-          </ion-button>
-        </div>
-      </ion-col>
-      <ion-col size="12" class="ion-padding mt-sm pt-m" id="anchorName">
-        <div>
-          {{'contact.label'| translate}}
-        </div>
-        <div class="mt-s">
-          {{'contact.desc'| translate}}
-        </div>
-        <form [formGroup]="formGroup" *ngIf="formGroup" class="mt-sm">
-          <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
-            <ion-label position="stacked">{{'form.email.label' |translate}}</ion-label>
-            <ion-input formControlName="email"></ion-input>
-          </ion-item>
-          <ion-item class="mt-sm"
-            [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['message']?.errors?.required}">
-            <ion-label position="stacked">{{'form.message.label' |translate}}</ion-label>
-            <ion-textarea maxlength="30" formControlName="message" [rows]="4"></ion-textarea>
-          </ion-item>
-        </form>
-        <div class="flex flex-jc-c mt-m mb-s">
-          <ion-button mode="md" (click)="send()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
-          </ion-button>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-padding map-row" #map>
-      <div class="flex flex-jc-c t-center mt-sm">
-        {{'where.we.are.label' | translate}}
-      </div>
-      <div class="mt-s flex flex-jc-c t-center">
-        C. de San Bernardo, 4, 28801 Alcalá de Henares, Madrid - Gimnasio Ichi-Ban
-      </div>
-      <div class="map-container mt-m">
-        <ion-icon (click)="openMap()" size="large" name="expand-outline"></ion-icon>
-        <div class="overlay" (click)="openMap()"></div>
-        <google-map class="show-mobile" [width]="320" [height]="300" [options]="mapOptions">
-          <map-marker [position]="marker.position"></map-marker>
-        </google-map>
-        <google-map class="show-tablet" [width]="520" [height]="300" [options]="mapOptions">
-          <map-marker [position]="marker.position"></map-marker>
-        </google-map>
-      </div>
-    </ion-row>
-    <ion-row class="footer flex flex-jc-c ion-padding mt-sm">
-      <div>{{year}} <span> - </span>
-        © Gracie Madrid</div>
-    </ion-row>
+<ion-content 
+#content
+appParallax appFadeHeader [appFadeHeader]="toolbar" [menuIcon]="menuIcon"
+ class="container hide-desktop" [scrollEvents]="true" *ngIf="conf && !utils.isDesktop">
+  <app-home-mobile></app-home-mobile>
+</ion-content>
 
-  </ion-grid>
+
+
+<ion-header collapse="fade" class="ion-no-border header hide-mobile hide-tablet" [translucent]="true">
+  <ion-toolbar class="animation fadeIn" #toolbar>
+    <div class="flex flex-ai-c">
+      <div class="header__logo ml-sm mt-s">
+        <img src="assets/images/logo.png" />
+      </div>
+      <div class="header__title ml-sm">Gracie Madrid</div>
+    </div>
+    <ion-buttons slot="end" class="header__nav-bar mr-l">
+      <ion-button (click)="utils.scrollToPoint(0)"> {{'bit.of.read' | translate}} </ion-button>
+      <ion-button (click)="utils.scrollToPoint(500)"> {{'pricing' | translate}} </ion-button>
+      <ion-button (click)="utils.scrollToPoint(800)"> {{'schedule' | translate | titlecase }} </ion-button>
+      <ion-button (click)="utils.openGallery(state)"> {{'gallery' | translate}} </ion-button>
+      <ion-button (click)="utils.scrollToPoint(1800)"> {{'contact.label' | translate}} </ion-button>
+      <ion-button (click)="utils.scrollToPoint(1800)">{{'where.we.are' |translate}} </ion-button>
+      <ion-button (click)="utils.changeLang()">
+        <img *ngIf="utils.lang === 'es'" id="flag-icon" src="assets/images/united-kingdom.png" slot="start">
+        <img *ngIf="utils.lang === 'en'" id="flag-icon" src="assets/images/spain.png" slot="start">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content #content class="ion-no-padding hide-mobile hide-tablet" *ngIf="utils.isDesktop">
+  <app-home-web></app-home-web>
 </ion-content>

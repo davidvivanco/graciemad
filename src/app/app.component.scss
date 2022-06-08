@@ -1,3 +1,22 @@
-#gi-icon{
-    width: 24px;
+
+@import '../theme/utils/utils.scss';
+
+.loading {
+    height: 100vh;
+    z-index: 10000;
+    background: var(--ion-color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 220px;
+        animation: spin 5s infinite linear;
+
+        @include screen-desktop {
+            width: 300px;
+            animation: spin 5s infinite linear;
+    
+        }
+    }
 }

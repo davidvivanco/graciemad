@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FadeHeaderDirective } from './fade-home.directive';
+import { ParallaxDirective } from './parallax.directive';
 
 
 
 @NgModule({
   declarations: [
-    FadeHeaderDirective
+    FadeHeaderDirective,
+    ParallaxDirective
   ],
-  exports:[
-    FadeHeaderDirective
+  exports: [
+    FadeHeaderDirective,
+    ParallaxDirective
   ],
   imports: [
     CommonModule

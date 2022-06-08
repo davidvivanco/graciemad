@@ -1,0 +1,41 @@
+<div class="content">
+  <div class="flex flex-column w-50 mt-l">
+    <div class="flex flex-ai-c">
+      <ion-icon name="book-sharp"></ion-icon>
+      <span class="ml-s bold t-upper"> {{'where.we.are' | translate}}
+      </span>
+    </div>
+    <div class="mt-s">
+      C. de San Bernardo, 4, 28801 Alcalá de Henares<br><span>Madrid - {{'gym' | translate}} Ichi-Ban </span>
+    </div>
+    <div class="map mt-sm">
+      <iframe width="600" height="350" id="gmap_canvas" [src]="utils?.urlGoogleMaps" frameborder="0" scrolling="no"
+        marginheight="0" marginwidth="0"></iframe>
+    </div>
+  </div>
+  <div class="w-50">
+    <div class="flex flex-ai-c mb-s">
+      <ion-icon name="book-sharp"></ion-icon>
+      <span class="ml-s bold t-upper"> {{'contact.label'| translate}}
+      </span>
+    </div>
+    <div class="mt-s">
+      {{'contact.desc'| translate}}
+    </div>
+    <form [formGroup]="formGroup" *ngIf="formGroup" class="mt-sm">
+      <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
+        <ion-label position="stacked">{{'form.email.label' |translate}}</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item class="mt-sm"
+        [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['message']?.errors?.required}">
+        <ion-label position="stacked">{{'form.message.label' |translate}}</ion-label>
+        <ion-textarea maxlength="30" formControlName="message" [rows]="4"></ion-textarea>
+      </ion-item>
+    </form>
+    <div class="flex flex-jc-c mt-sm mb-s">
+      <ion-button mode="md" (click)="send()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
+      </ion-button>
+    </div>
+  </div>
+</div>

@@ -2,20 +2,62 @@
   <div class="calendar">
     <div class="front">
       <div class="current-date">
-        <h1>HORARIO</h1>
+        <h1>{{'schedule' | translate}}</h1>
       </div>
       <div class="current-month">
-        <div class="week-days">
-          <div>MON</div>
-          <div>TUE</div>
-          <div>WED</div>
-          <div>THU</div>
-          <div>FRI</div>
-          <div>SAT</div>
-          <div>SUN</div>
+        <div class="week-days" [ngClass]="{'ios':utils.isSafari()}">
+          <div [ngClass]="{'today': day === 1}">{{'monday' | translate}}</div>
+          <div [ngClass]="{'today': day === 2}">{{'tuesday' | translate}}</div>
+          <div [ngClass]="{'today': day === 3}">{{'wednesday' | translate}}</div>
+          <div [ngClass]="{'today': day === 4}">{{'thursday' | translate}}</div>
+          <div [ngClass]="{'today': day === 5}">{{'friday' | translate}}</div>
+          <div [ngClass]="{'today': day === 6}">{{'saturday' | translate}}</div>
+          <div [ngClass]="{'today': day === 7}">{{'sunday' | translate}}</div>
         </div>
-        <div class="week-days-container" *ngIf="!noShowGi">
-          <div class="hour">19:45 <br> 20:45</div>
+        <div class="week-days-container">
+          <div class="hour">17:45 <br> 18:45</div>
+          <div class="week-days">
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+            <div class="day-off">X</div>
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+            <div class="day-off">X</div>
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+            <div class="day-off">X</div>
+            <div class="day-off">X</div>
+          </div>
+        </div>
+        <div class="week-days-container">
+          <div class="hour">18:45 <br> 19:45</div>
+          <div class="week-days">
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+            <div class="day-work">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+            </div>
+
+            <div class="day-off">X</div>
+            <div class="day-off">X</div>
+          </div>
+        </div>
+        <div class="week-days-container">
+          <div class="hour" [ngClass]="{'ios':utils.isSafari()}">19:45 <br> 20:45</div>
           <div class="week-days">
             <div class="day-work"><img class="gi-calendar" src="assets/images/gi.svg" /></div>
             <div class="day-off">X</div>
@@ -26,7 +68,7 @@
             <div class="day-off">X</div>
           </div>
         </div>
-        <div class="week-days-container" *ngIf="!noShowGrappling">
+        <div class="week-days-container">
           <div class="hour">20:45 <br> 21:45</div>
           <div class="week-days">
             <div> <img class="mma-calendar day-work" src="assets/images/grappling.png" /></div>
@@ -38,7 +80,7 @@
             <div class="day-off">X</div>
           </div>
         </div>
-        <div class="week-days-container" *ngIf="!noShowMMA">
+        <div class="week-days-container">
           <div class="hour">20:45 <br> 21:45</div>
           <div class="week-days">
             <div class="day-work"><img class="mma-calendar" src="assets/images/mma.png" /></div>

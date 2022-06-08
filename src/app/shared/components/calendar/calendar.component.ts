@@ -6,16 +6,14 @@ import { UtilsService } from '../../services/utils.service';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
 
-  @Input() noShowGi: boolean;
-  @Input() noShowGrappling: boolean;
-  @Input() noShowMMA: boolean;
-
+  day: number;
+  
   constructor(
     public utils: UtilsService
-  ) { }
-
-  ngOnInit() { }
+  ) { 
+    this.day = new Date().getDay();
+  }
 
 }

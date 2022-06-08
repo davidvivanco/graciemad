@@ -1,0 +1,34 @@
+<div class="flex flex-jc-c flex-column info">
+  <div class="title mt-xs"> {{'robin.seminar.title' | translate}}
+    {{conf?.seminar?.date.toMillis() | date:'fullDate':'es'}}
+    - {{conf?.seminar?.date.toMillis() | date:'shortTime':'es'}}
+  </div>
+  <div class="more-info">
+    {{'robin.seminar.info' | translate}}
+  </div>
+  <div class="flex flex-jc-c mt-m">
+    <form [formGroup]="formGroup" *ngIf="formGroup">
+      <ion-item [ngClass]="{'invalid': formGroup.touched &&  formGroup?.controls['name']?.errors?.required}">
+        <ion-label position="stacked">{{'form.name.label' |translate}} *</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item class="mt-sm"
+        [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
+        <ion-label position="stacked">{{'form.email.label' |translate}} *</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="flex flex-jc-c mt-sm">
+        <ion-button [disabled]="emailSent" (click)="sendEmail()" expand="" mode="md" color="secondary" class="mt-sm">
+          {{'btn.send' |translate}}
+        </ion-button>
+      </div>
+      <div class="flex flex-jc-c flex-ai-c w100 mt-sm follow-us" style="font-size: 12px;">
+        <div class="or-ask">{{'or.ask' | translate}}</div>
+        <div class="flex flex-jc-c flex-ai-c ml-s">
+          <ion-icon (click)="utils.openFacebook()" class="fs21" name="logo-facebook"></ion-icon>
+          <ion-icon (click)="utils.openInstagram()" class="ml-s fs21" name="logo-instagram"></ion-icon>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

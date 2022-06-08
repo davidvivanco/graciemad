@@ -1,3 +1,5 @@
+@import "../../../../theme/utils/utils.scss";
+
 * {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
@@ -20,6 +22,9 @@ body {
     background: #dfebed;
     font-family: "Roboto", sans-serif;
 }
+.today{
+    color: var(--ion-color-secondary);
+}
 
 .gi-calendar,
 .mma-calendar {
@@ -41,6 +46,9 @@ body {
 }
 
 .calendar {
+    box-shadow:  var(--calendar-box-shadow);
+    padding-left:  var(--calendar-padding-left);
+    border-radius: var(--calendar-border-radius);
     background: var(--calendar-background, #2b4450);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     height: var(--calendar-height, 320px);
@@ -84,14 +92,14 @@ body {
 }
 
 .current-date h1,
-.rates h1 ,
+.pricing h1,
 .legend h1 {
     color: #dfebed;
     font-size: 1.4em;
     font-weight: 300;
 }
 
-.rates{
+.pricing {
     padding-top: 10px;
     padding-left: 40px;
 }
@@ -117,27 +125,18 @@ body {
         display: flex;
         justify-content: center;
         width: 30px;
+        ion-icon{
+            transform: scale(1.7);
+            align-self: flex-end;
+        }
     }
 }
+
 
 .days {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.weeks {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    padding: 0 40px;
-}
-
-.weeks div {
-    font-size: 1.2em;
-    font-weight: 300;
-    margin-bottom: 20px;
-    width: 100%;
 }
 
 .day-off {
@@ -265,4 +264,12 @@ body {
 .front,
 .back {
     backface-visibility: hidden;
+}
+
+.week-days.ios {
+    font-size: 0.7rem;
+}
+
+.hour.ios {
+    font-size: 0.7rem;
 }

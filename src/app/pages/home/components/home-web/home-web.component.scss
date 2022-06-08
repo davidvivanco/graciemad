@@ -1,0 +1,210 @@
+
+@import "../../../../../theme/utils/utils.scss";
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+    padding-left: 8%;
+    padding-right: 8%;
+    height: auto;
+
+    .seminar {
+        width: 60%;
+        display: flex;
+
+        .form {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            height: 100%;
+        }
+
+        .robin {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            height: 480px;
+
+            img {
+                height: 480px;
+                border-radius: 3px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+            }
+        }
+    }
+
+    .reading {
+        width: 35%;
+
+        .item {
+            cursor: pointer;
+
+            .label {
+                width: 70%;
+                padding-bottom: 3px;
+
+                .time-to-read {
+                    color: #666666;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+
+.pricing {
+    margin-top: 50px;
+    background-color: var(--ion-color-light);
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.calendar {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 8%;
+    padding-right: 8%;
+    height: auto;
+    padding-bottom: 50px;
+
+    .calendar-container {
+        margin-top: 50px;
+        width: 60%;
+
+        app-calendar {
+            --calendar-padding-left: 18px;
+            --calendar-box-shadow: 0 4px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            --calendar-border-radius: 4px;
+            --calendar-background: var(--ion-color-primary);
+            --calendar-height: 380px;
+        }
+    }
+}
+
+.legend {
+    margin-top: 50px;
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    justify-content: inherit;
+
+    img {
+        width: 50px;
+    }
+
+    ion-icon[name="person-outline"] {
+        transform: scale(1.1);
+    }
+
+}
+
+.footer {
+    // margin-top: 70px;
+    background: #1c1c1c;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .year {
+        color: white;
+    }
+}
+
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 40px;
+    background: #1c1c1c;
+    ion-icon{
+        transform: scale(1.1);
+    }
+    ion-button{
+        width: 60%;
+    }
+    .title {
+        color: var(--ion-color-secondary);
+        font-weight: 800;
+        font-size: 13px;
+        margin-left: 8px;
+        text-transform: uppercase;
+    }
+
+    .where-we-are {
+        width: 50%;
+        color: white;
+        flex-direction: column;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        .address {
+            font-weight: 800;
+            font-size: 13px;
+            margin-left: 16px;
+            color: white;
+            width: 100%;
+
+            span {
+                color: hsla(0, 0%, 100%, 0.6);
+            }
+        }
+
+        iframe {
+            filter: grayscale(100%);
+
+        }
+    }
+
+    .send-email {
+        width: 40%;
+        color: white;
+
+        form {
+            padding: 16px;
+
+            .invalid {
+                border: 1px solid red;
+
+                ion-label {
+                    color: red;
+                }
+            }
+        }
+        .follow-us {
+            font-size: 13px;
+            font-weight: 800;
+            display:flex;
+            justify-content: flex-start;
+            div:nth-child(2) {
+                display: flex;
+                justify-content: flex-start;
+    
+                ion-icon {
+                    transform: scale(1.3);
+                }
+            }
+    
+            @include screen-tablet-and-desktop {
+                font-size: 16px;
+            }
+        }
+    }
+
+   
+}

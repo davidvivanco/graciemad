@@ -1,0 +1,116 @@
+<ion-header collapse="fade" class="ion-no-border main-header" [translucent]="true">
+  <ion-toolbar class="animation fadeIn" #toolbar>
+    <div class="flex flex-ai-c">
+      <div class="logo-container">
+        <ion-avatar class="logo header_logo">
+          <img src="assets/images/logo.png" />
+        </ion-avatar>
+      </div>
+      <div class="header_title mr-xl">Gracie Madrid</div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" *ngIf="formGroup">
+    <ion-list class="pricing-list">
+      <ion-list-header>
+        <h3> Tarifas </h3>
+      </ion-list-header>
+      <div class="flex">
+        <div class="w-70">
+          <ion-item lines="none" class="flex flex-ai-c">
+            <ion-label>Jiu-Jitsu</ion-label>
+            <ion-toggle slot="start" formControlName="jiujitsuToogle"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="w-30">
+          <ion-item  [disabled]="!formGroup.controls['jiujitsuToogle'].value" lines="none" >
+            <ion-label position="stacked">Precio</ion-label>
+            <ion-input formControlName="jiujitsu" type="number" placeholder="0.00€" [value]="conf?.pricing[0]?.price"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-70">
+          <ion-item lines="none" class="flex flex-ai-c">
+            <ion-label>Grappling</ion-label>
+            <ion-toggle slot="start" formControlName="grapplingToogle"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="w-30">
+          <ion-item lines="none" [disabled]="!formGroup.controls['grapplingToogle'].value">
+            <ion-label position="floating">Precio</ion-label>
+            <ion-input formControlName="grappling" type="number" placeholder="0.00€" [value]="conf?.pricing[1]?.price"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-70">
+          <ion-item lines="none" class="flex flex-ai-c">
+            <ion-label>MMA</ion-label>
+            <ion-toggle slot="start" formControlName="mmaToogle"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="w-30">
+          <ion-item [disabled]="!formGroup.controls['mmaToogle'].value" lines="none">
+            <ion-label position="floating">Precio</ion-label>
+            <ion-input formControlName="mma" type="number" placeholder="0.00€" [value]="conf?.pricing[2]?.price"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-70">
+          <ion-item lines="none" class="flex flex-ai-c">
+            <ion-label>Jiu-Jitsu + MMA</ion-label>
+            <ion-toggle slot="start" formControlName="premiumToogle"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="w-30">
+          <ion-item lines="none" [disabled]="!formGroup.controls['premiumToogle'].value">
+            <ion-label position="floating">Precio</ion-label>
+            <ion-input formControlName="premium" type="number" placeholder="0.00€" [value]="conf?.pricing[3]?.price"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-70">
+          <ion-item lines="none" class="flex flex-ai-c">
+            <ion-label>Clases privadas</ion-label>
+            <ion-toggle slot="start" formControlName="privateToogle"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="w-30">
+          <ion-item lines="none" [disabled]="!formGroup.controls['privateToogle'].value">
+            <ion-label position="floating">Precio</ion-label>
+            <ion-input formControlName="private" type="number" placeholder="0.00€" [value]="conf?.pricing[4]?.price"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+    </ion-list>
+    <ion-list class="pricing-list">
+      <ion-list-header>
+        <h3> Seminario Robin Gracie </h3>
+      </ion-list-header>
+      <div>
+        <div>
+          <ion-item lines="none" >
+            <ion-toggle slot="start" formControlName="seminar"></ion-toggle>
+          </ion-item>
+        </div>
+        <div >
+          <ion-datetime formControlName="seminarDate" [disabled]="!formGroup.controls['seminar'].value"></ion-datetime>
+        </div>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-row class="ion-justify-content-center">
+      <ion-button [disabled]="formGroup?.invalid" mode="md" (click)="save()">Guardar
+      </ion-button>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

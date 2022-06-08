@@ -1,20 +1,50 @@
 import { Injectable } from '@angular/core';
 import { SafariViewController } from '@awesome-cordova-plugins/safari-view-controller/ngx';
-import { ModalController, Platform } from '@ionic/angular';
+import { LoadingController, MenuController, NavController, Platform, ToastController } from '@ionic/angular';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
-import { DetailsComponent } from '../components/details/details.component';
-import { DetailsClassComponent } from '../components/details-class/details-class.component';
+import { ReadMoreType, State } from '../interfaces';
+import { StoreUtils } from '../classes/store';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { ScrollContentService } from './scroll-content.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UtilsService {
+export class UtilsService extends StoreUtils<State> {
+  readonly urlGoogleMaps: SafeResourceUrl;
+  readonly urlFacebook: string;
+  readonly urlInstagram: string;
+  lang: 'es' | 'en';
 
   constructor(
-    private modalController: ModalController,
+    private loadingController: LoadingController,
+    private toastController: ToastController,
+    private platform: Platform,
     private iab: InAppBrowser,
-    private safariViewController: SafariViewController) { }
+    private translate: TranslateService,
+    private menu: MenuController,
+    private nav: NavController,
+    public sanitizer: DomSanitizer,
+    private scrollContent: ScrollContentService,
+    private safariViewController: SafariViewController) {
+    super();
+    this.lang = 'es';
+    this.urlFacebook = 'https://www.facebook.com/graciemadridbjj/';
+    this.urlInstagram = 'https://www.instagram.com/gracie_madrid_academy/';
+    this.urlGoogleMaps = this.sanitizer.bypassSecurityTrustResourceUrl('https://maps.google.com/maps?q=icih%20ban%20alcala&t=&z=13&ie=UTF8&iwloc=&output=embed');
 
+  }
+
+  changeLang() {
+    (this.lang) = this.lang === 'es' ? 'en' : 'es';
+    this.translate.setDefaultLang(this.lang)
+    this.closeMenu();
+  }
+
+  closeMenu() {
+    this.menu.close('menu');
+  }
 
   openUrl(url: string) {
     if (!url || url === '') return;
@@ -56,27 +86,79 @@ export class UtilsService {
       });
   }
 
-  async openModalDetail() {
-    const modal = await this.modalController.create({
-      component: DetailsComponent,
-      cssClass: 'my-custom-class'
-    });
-    return await modal.present();
+  async openGallery(state: Partial<State>) {
+    this.updateState({ ...state, loading: true })
+    this.closeMenu();
+    this.nav.navigateForward('gallery')
   }
 
-  async openModalClassDetail(
-    noShowGi: boolean,
-    noShowGrappling: boolean,
-    noShowMMA: boolean) {
-    const modal = await this.modalController.create({
-      component: DetailsClassComponent,
-      componentProps: {
-        noShowGi,
-        noShowMMA,
-        noShowGrappling
-      },
-      cssClass: 'my-custom-class'
+
+  async navTo(path: string) {
+    this.nav.navigateForward(path)
+  }
+
+  async openReadMore(type: ReadMoreType, state: Partial<State>) {
+    this.updateState({ ...state, readMoreType: type })
+    this.nav.navigateForward('read-more')
+  }
+
+  isSafari() {
+    return (
+      /Safari/.test(navigator.userAgent) &&
+      /Apple Computer/.test(navigator.vendor)
+    );
+  }
+
+  openFacebook() {
+    this.openUrl(this.urlFacebook)
+  }
+
+  openInstagram() {
+    this.openUrl(this.urlInstagram)
+  }
+
+
+  scrollToPoint(x: number) {
+    this.closeMenu();
+    console.log("sas")
+    this.scrollContent.scrollTo(x)
+  }
+
+  async presentLoading(): Promise<HTMLIonLoadingElement> {
+    const loading = await this.loadingController.create({
     });
-    return await modal.present();
+    await loading.present();
+    return loading;
+  }
+
+  async presentToast(message: string, color?: string) {
+    const toast = await this.toastController.create({
+      color: color || 'primary',
+      duration: 2000,
+      position: 'top',
+      message,
+    });
+
+    await toast.present();
+  }
+
+  get isApp(): boolean {
+    return (
+      this.platform.is('cordova')
+    );
+  }
+
+  /**
+ * @description Indicates if the screen size corresponds to a tablet
+ */
+  get isTablet(): boolean {
+    return this.platform.width() > 568;
+  }
+
+  /**
+   * @description Indicates if the screen size corresponds to a desktop
+   */
+  get isDesktop(): boolean {
+    return this.platform.width() > 960;
   }
 }

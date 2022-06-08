@@ -1,9 +1,12 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonContent, MenuController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
+import { Configuration, State } from './shared/interfaces';
 import { TranslateService } from '@ngx-translate/core';
+import { distinctUntilChanged, take, tap } from 'rxjs/operators';
 import { ScreenSizeService } from './shared/services/screen-size.service';
-import { ScrollContentService } from './shared/services/scroll-content.service';
+import { FirebaseStorageService } from './shared/services/storage.service';
+import { UtilsService } from './shared/services/utils.service';
 
 @Component({
   selector: 'app-root',
@@ -14,57 +17,66 @@ export class AppComponent {
 
   isDesktop: boolean;
   @HostListener('window:resize', ['$event'])
-
   private onResize(e) {
     this.screenSizeService.onResize(e.target.innerWidth)
   }
 
   lang: 'es' | 'en';
-
-
+  configuration: Configuration;
+  loading: boolean;
+  state: Partial<State>
   constructor(
-    private menu: MenuController,
+    public utils: UtilsService,
     private screenSizeService: ScreenSizeService,
-    private scrollContent: ScrollContentService,
     private router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private firebaseStore: FirebaseStorageService
   ) {
+
     this.lang = 'es'
     this.translate.setDefaultLang(this.lang);
-    this.screenSizeService.isDesktopView().subscribe(isDesktop => {
+    this.utils.setState({ loading: true });
+    this.utils.getState().pipe(
+      distinctUntilChanged(),
+      tap(console.log)
+    ).subscribe(state => {
+      this.state = state;
+      this.loading = state.loading
+    });
 
-      if (!isDesktop) {
-        this.router.navigateByUrl('home');
-      }
+    this.firebaseStore.getConf()
+      .pipe(take(1))
+      .subscribe((conf) => {
+        this.configuration = conf[0];
+        this.utils.updateState({ configuration: this.configuration  ,loading:false})
+        if (this.utils.isApp) {
+          this.router.navigateByUrl('admin');
+        } else {
+          this.router.navigateByUrl('')
+          
+          // this.screenSizeService.isDesktopView().subscribe(isDesktop => {
 
-      if (!this.isDesktop && isDesktop) {
+          //   if (!isDesktop) {
+          //     console.log('home')
+          //     this.router.navigateByUrl('home')
+          //   }
 
-        this.router.navigateByUrl('/home-web');
+          //   if (!this.isDesktop && isDesktop) {
+          //     this.router.navigateByUrl('');
+          //   }
+          //   this.isDesktop = isDesktop;
+          // })
+        }
+      })
 
-      }
-      this.isDesktop = isDesktop;
-    })
   }
 
   changeLang() {
     (this.lang) = this.lang === 'es' ? 'en' : 'es';
     this.translate.setDefaultLang(this.lang)
-    this.closeMenu();
+    this.utils.closeMenu();
   }
 
-  closeMenu() {
-    this.menu.close('menu');
-  }
-
-
-  getContent() {
-    return document.querySelector('ion-content');
-  }
-
-  scrollToPoint(x: number) {
-    this.closeMenu();
-    this.scrollContent.scrollTo(x)
-  }
 }
 
 

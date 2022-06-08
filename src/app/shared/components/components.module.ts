@@ -1,26 +1,35 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalendarComponent } from './calendar/calendar.component';
 import { IonicModule } from '@ionic/angular';
-import { DetailsComponent } from './details/details.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { DetailsClassComponent } from './details-class/details-class.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { ContactComponent } from './contact/contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SeminarFormComponent } from './seminar-form/seminar-form.component';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   declarations: [
     CalendarComponent,
-    DetailsComponent,
-    DetailsClassComponent
+    PricingComponent,
+    ContactComponent,
+    SeminarFormComponent,
   ],
-  exports:[
+  exports: [
     CalendarComponent,
-    DetailsComponent,
-    DetailsClassComponent
+    PricingComponent,
+    ContactComponent,
+    SeminarFormComponent,
+    
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     TranslateModule,
     IonicModule
-  ]
+  ],
+  providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
 })
 export class ComponentsModule { }

@@ -1,6 +1,6 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { Meta } from '@angular/platform-browser';
 import { Configuration, State } from './shared/interfaces';
 import { TranslateService } from '@ngx-translate/core';
 import { distinctUntilChanged, take, tap } from 'rxjs/operators';
@@ -18,22 +18,27 @@ export class AppComponent {
   isDesktop: boolean;
   @HostListener('window:resize', ['$event'])
   private onResize(e) {
-    this.screenSizeService.onResize(e.target.innerWidth)
+    this.screenSizeService.onResize(e.target.innerWidth);
   }
 
   lang: 'es' | 'en';
   configuration: Configuration;
   loading: boolean;
-  state: Partial<State>
+  state: Partial<State>;
   constructor(
     public utils: UtilsService,
+    private meta: Meta,
     private screenSizeService: ScreenSizeService,
     private router: Router,
     private translate: TranslateService,
     private firebaseStore: FirebaseStorageService
   ) {
-
-    this.lang = 'es'
+    this.meta.addTags(
+      [
+        { name: 'description', content: 'Gracie Madrid. Academia de Jiu-jitsu y MMA. Escuela dirigida por Agustín Mesa alumno directo de Robin Gracie' },
+        { name: 'keywords', content: 'gracie madrid graciemadrid robin gracie jiu-jitsu, jiujitsu mmas' }  
+      ]);
+    this.lang = 'es';
     this.translate.setDefaultLang(this.lang);
     this.utils.setState({ loading: true });
     this.utils.getState().pipe(
@@ -41,39 +46,28 @@ export class AppComponent {
       tap(console.log)
     ).subscribe(state => {
       this.state = state;
-      this.loading = state.loading
+      this.loading = state.loading;
     });
 
     this.firebaseStore.getConf()
       .pipe(take(1))
       .subscribe((conf) => {
         this.configuration = conf[0];
-        this.utils.updateState({ configuration: this.configuration  ,loading:false})
+        this.utils.updateState({ configuration: this.configuration, loading: false });
         if (this.utils.isApp) {
-          this.router.navigateByUrl('admin');
+          // this.router.navigateByUrl('admin');
+          this.router.navigateByUrl('');
         } else {
-          this.router.navigateByUrl('')
-          
-          // this.screenSizeService.isDesktopView().subscribe(isDesktop => {
+          this.router.navigateByUrl('');
 
-          //   if (!isDesktop) {
-          //     console.log('home')
-          //     this.router.navigateByUrl('home')
-          //   }
-
-          //   if (!this.isDesktop && isDesktop) {
-          //     this.router.navigateByUrl('');
-          //   }
-          //   this.isDesktop = isDesktop;
-          // })
         }
-      })
+      });
 
   }
 
   changeLang() {
     (this.lang) = this.lang === 'es' ? 'en' : 'es';
-    this.translate.setDefaultLang(this.lang)
+    this.translate.setDefaultLang(this.lang);
     this.utils.closeMenu();
   }
 

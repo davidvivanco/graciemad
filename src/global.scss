@@ -32,3 +32,85 @@
     font-family: 'Lato', sans-serif;
 
 }
+
+ion-modal::part(content) {
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+}
+
+
+/*
+ * Dark Colors
+ * ------------------
+ */
+
+// body.dark {
+//     --ion-color-primary: #FEDD03;
+//     --ion-color-secondary: #FEDD03;
+
+//     .pricing-title-dark{
+//         background: white;
+//         color: black;
+//         margin-bottom: 0px;
+//         padding-bottom: 0px;
+//         padding-top: 20px;
+//     }
+
+//     ion-menu{
+//         ion-header{
+//             background:#1c1c1c;
+//         }
+//         ion-content{
+//             --background:#1c1c1c;
+//         }
+//     }
+
+//     .main {
+//         background-color: #1c1c1c;
+//     }
+
+//     .robin-seminar {
+//         background-color: #1c1c1c;
+//     }
+
+//     .dark-slides-princing {
+//         background: white;
+//         color: black;
+
+//         img {
+//             filter: invert(1);
+//         }
+
+//         .flip-card-front {
+//             ion-button {
+//                 --color: black!important;
+//             }
+//         }
+//     }
+
+//     app-calendar {
+//         --calendar-background: #FEDD03 !important;
+
+//         .dark-color {
+//             color: black !important;
+//         }
+
+//         .day-off {
+//             opacity: 1;
+//         }
+
+//         .gi-calendar,
+//         .mma-calendar {
+//             filter: none
+//         }
+
+//         .today {
+//             color: white;
+//         }
+
+//         ion-icon[name="person-outline"] {
+//             color: black;
+//         }
+//     }
+// }

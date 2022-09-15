@@ -10,9 +10,15 @@ export class FadeHeaderDirective {
     let scrollTop = $event.detail.scrollTop;
     if (scrollTop >= 225) scrollTop = 225;
     this.domCtrl.write(() => {
-      if (scrollTop <= 120) this.menuIcon.style.setProperty('background', 'none');
-      else this.menuIcon.style.setProperty('background', 'var(--ion-color-primary)');
-    })
+      if (scrollTop <= 120) {
+        this.menuIcon.style.setProperty('background', 'none');
+        this.menuIcon.classList.remove('menu-icon-visible');
+      }
+      else {
+        this.menuIcon.style.setProperty('background', 'var(--ion-color-primary)');
+        this.menuIcon.classList.add('menu-icon-visible');
+      }
+    });
   };
 
   @Input('appFadeHeader') toolbar: any;

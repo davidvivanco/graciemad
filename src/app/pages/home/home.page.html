@@ -3,7 +3,7 @@
     <div class="flex flex-ai-c">
       <div class="logo-container">
         <ion-avatar class="logo header_logo">
-          <img src="assets/images/logo.png" />
+          <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Flogo.png?alt=media&token=c39356c6-9ab5-44ad-b207-056ad4950957" />
         </ion-avatar>
       </div>
       <div class="header_title">Gracie Madrid</div>
@@ -25,20 +25,20 @@ appParallax appFadeHeader [appFadeHeader]="toolbar" [menuIcon]="menuIcon"
   <ion-toolbar class="animation fadeIn" #toolbar>
     <div class="flex flex-ai-c">
       <div class="header__logo ml-sm mt-s">
-        <img src="assets/images/logo.png" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Flogo.png?alt=media&token=c39356c6-9ab5-44ad-b207-056ad4950957" />
       </div>
       <div class="header__title ml-sm">Gracie Madrid</div>
     </div>
     <ion-buttons slot="end" class="header__nav-bar mr-l">
       <ion-button (click)="utils.scrollToPoint(0)"> {{'bit.of.read' | translate}} </ion-button>
       <ion-button (click)="utils.scrollToPoint(500)"> {{'pricing' | translate}} </ion-button>
-      <ion-button (click)="utils.scrollToPoint(800)"> {{'schedule' | translate | titlecase }} </ion-button>
+      <ion-button (click)="utils.scrollToPoint(1000)"> {{'schedule' | translate | titlecase }} </ion-button>
       <ion-button (click)="utils.openGallery(state)"> {{'gallery' | translate}} </ion-button>
       <ion-button (click)="utils.scrollToPoint(1800)"> {{'contact.label' | translate}} </ion-button>
       <ion-button (click)="utils.scrollToPoint(1800)">{{'where.we.are' |translate}} </ion-button>
       <ion-button (click)="utils.changeLang()">
-        <img *ngIf="utils.lang === 'es'" id="flag-icon" src="assets/images/united-kingdom.png" slot="start">
-        <img *ngIf="utils.lang === 'en'" id="flag-icon" src="assets/images/spain.png" slot="start">
+        <img *ngIf="utils.lang === 'es'" id="flag-icon" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Funited-kingdom.png?alt=media&token=e84cb850-40c7-42a7-90a4-ea324eb0fce1" slot="start">
+        <img *ngIf="utils.lang === 'en'" id="flag-icon" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fspain.png?alt=media&token=8e644bd0-f17e-4433-9121-9011c113cd87" slot="start">
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

@@ -1,246 +1,43 @@
 @import "../../../theme/utils/utils.scss";
+img{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
-.bg-img{
-    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.gallery {
-    .see-more {
-        padding: 15px;
-        font-weight: 700;
-        color: var(--ion-color-primary);
-        @include screen-desktop {
-            margin-right: 30px;
-            font-size: 17px;
-        }
-    }
+.mobile-img-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
 
-    .title {
-        margin-top: 4rem;
-        @include screen-desktop {
-           padding-left: 35px;
-        }
-    }
-
-    .row1 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .col1 {
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            margin-right: 4px;
-            width: 45.5%;
-            height: 270px;
-            @include screen-desktop {
-                height: 800px;
-                margin-right: 6px;
-            }
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_4.png?alt=media&token=ba14715d-d9ec-4ec1-9f3b-54d011e592c9');
-        }
-
-        .col2 {
-            width: 45.5%;
-            @include screen-desktop {
-                margin-left: 6px;
-            }
-            .img1 {
-                height: 132.5px;
-                margin-bottom: 2px;
-                background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_14.png?alt=media&token=4c09303a-8fb1-414a-8381-0f32e8c62f6b');
-                @include screen-desktop {
-                    height: 395.5px;
-                }
-            }
-
-            .img2 {
-                height: 132.5px;
-                margin-top: 2px;
-                background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_6.png?alt=media&token=e8015d5d-5020-43fc-8107-92bb0eb08bac');
-                @include screen-desktop {
-                    height: 395.5px;
-                    margin-top: 6px;
-                }
-            }
-        }
-    }
-
-    .row2 {
+    img {
         width: 100%;
-        .col1 {
-            margin-top: 5px;
-            width: 92%;
-            height: 250px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_7.png?alt=media&token=d1899040-2b04-43ac-99e6-dc4a16fcebbf');
-            @include screen-desktop {
-                margin-top: 10px;
-                height: 600px;
-            }
-        }
-    }
-
-    .row3 {
-        width: 100%;
-     
-        .col1 {
-            margin-top: 5px;
-            margin-right: 2px;
-            width: 45.5%;
-            height: 200px;
-            background-position: calc(100% - -33px) 0;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_8.png?alt=media&token=1f5f99c6-e8a8-4a92-826a-f48f1b0e084c');
-            @include screen-tablet-and-desktop {
-                background-position: calc(100% - 1px) 0;
-            }
-            @include screen-desktop {
-                margin-top: 10px;
-                margin-right: 6px;
-                height: 395.5px;
-            }
-            
-        }
-
-        .col2 {
-            margin-top: 5px;
-            margin-left: 2px;
-            width: 45.5%;
-            height: 200px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_9.png?alt=media&token=5c78edcf-5823-44f0-891a-b21111d66de6');
-            @include screen-desktop {
-                margin-top: 10px;
-                height: 395.5px;
-                margin-left: 6px;
-            }
-        }
-    }
-
-    .row4 {
-        width: 100%;
-
-        .col1 {
-            margin-top: 5px;
-            width: 92%;
-            height: 250px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_10.png?alt=media&token=39373874-a1d0-4c24-be61-613309b4c07c');
-            @include screen-desktop {
-                margin-top: 10px;
-                height: 600px;
-            }
         
-        }
     }
+}
 
-    .row5 {
-        margin-top: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.mobile-img-col-grid {
+    padding-left: 2.5px;
+    padding-right: 2.5px;
+    margin-bottom: 5px;
+    align-items: none;
 
-        @include screen-desktop {
-            margin-top: 10px;
-        }
-        .col1 {
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            margin-left: 4px;
-            width: 45.5%;
-            height: 270px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_12.png?alt=media&token=be998565-91ef-41a6-b2e1-41384cfe7d27');
-       
-            @include screen-desktop {
-                height: 800px;
-                margin-left: 6px;
-            }
-        }
-
-        .col2 {
-            width: 45.5%;
-            @include screen-desktop {
-                margin-right: 6px;
-            }
-            .img1 {
-                height: 132.5px;
-                margin-bottom: 2px;
-                background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_11.png?alt=media&token=d751b042-0b33-4196-a5f1-289f571ffe77');
-                @include screen-desktop {
-                    height: 395.5px;
-                }
-            }
-
-            .img2 {
-                @include screen-desktop {
-                    height: 395.5px;
-                    margin-top: 6px;
-                }
-                height: 132.5px;
-                margin-top: 2px;
-                background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_5.png?alt=media&token=7abd947f-67f8-4255-bffa-7452d8464018');
-            }
-        }
+    img {
+        height: 100%;
     }
+}
 
-    .row6 {
-        width: 100%;
-        .col1 {
-            margin-top: 5px;
-            width: 92%;
-            height: 230px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_18.png?alt=media&token=e65a394d-8391-4722-aaf2-0274ce43c6d3');
-        }
+@include screen-tablet-and-desktop {
+ 
+    img {
+        height: 100%;
     }
+}
 
-    .row7 {
-        width: 100%;
-        .col1 {
-            margin-top: 5px;
-            margin-right: 2px;
-            width: 45.5%;
-            height: 200px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_17.png?alt=media&token=af5a43db-cf7e-4ef6-8155-e2c032994f0a');
-        }
-
-        .col2 {
-            margin-top: 5px;
-            margin-left: 2px;
-            width: 45.5%;
-            height: 200px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_16.png?alt=media&token=3060564f-b134-46cd-abf7-3c497f02d8d0');
-        }
-    }
-
-    .row8 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 5px;
-        .col1 {
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            margin-right: 4px;
-            width: 45.5%;
-            height: 270px;
-            background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_15.png?alt=media&token=f9f85e1c-5787-4847-ba9b-3d17bc43acb2');
-        }
-
-        .col2 {
-            width: 45.5%;
-
-            .img1 {
-                height: 132.5px;
-                margin-bottom: 2px;
-                background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_20.png?alt=media&token=c1e436cc-82e3-4a33-80ea-41f1c6d63760');
-            }
-
-            .img2 {
-                height: 132.5px;
-                margin-top: 2px;
-                background-image: url('https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/img_22.png?alt=media&token=83c6eb0d-b100-41c7-92ac-79c60f24210d');
-            }
-        }
-    }
-
+ion-skeleton-text{
+    height: 200px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }

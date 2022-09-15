@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IonContent, IonSlides, MenuController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { ValidatorEmail } from 'src/app/shared/custom-validators';
 import { Configuration, State } from 'src/app/shared/interfaces';
 import { ScrollContentService } from 'src/app/shared/services/scroll-content.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
@@ -31,7 +32,8 @@ export class HomeMobileComponent implements OnInit {
   loading: boolean;
   conf: Configuration;
   subs: Subscription
-  state:Partial<State>;
+  state: Partial<State>;
+  emailSent: boolean;
 
   constructor(
     public utils: UtilsService,
@@ -39,7 +41,7 @@ export class HomeMobileComponent implements OnInit {
     private menu: MenuController,
     private formBuilder: FormBuilder,
     public sanitizer: DomSanitizer
-  ) { 
+  ) {
 
     this.subs = new Subscription();
     this.state = {};
@@ -62,12 +64,12 @@ export class HomeMobileComponent implements OnInit {
 
     this.year = new Date().getFullYear().toString();
     this.formGroup = this.formBuilder.group({
-      email: [null, [Validators.required]],
+      email: [null, [Validators.required ,ValidatorEmail]],
       message: [null, [Validators.required]],
     })
   }
 
- 
+
   ngOnInit(): void {
     this.subs.add(
       this.utils.getState().subscribe(state => {
@@ -87,10 +89,20 @@ export class HomeMobileComponent implements OnInit {
     console.log(this.content)
   }
 
-  send() {
+  async sendInfoEmail() {
     this.formGroup.markAsTouched();
     if (this.formGroup.valid) {
-      console.log('Enviado')
+      const loading = await this.utils.presentLoading()
+      const email = this.formGroup.value.email;
+      const text = this.formGroup.value.message;
+      this.utils.sendInfoEmail(text, email).subscribe((res) => {
+        loading.dismiss();
+        this.utils.presentToast('Email enviado con exito.', 'success');
+        this.emailSent = true;
+      }, () => {
+        loading.dismiss();
+        this.utils.presentToast('¡Ups!. Algo no fue bien. Inténtalo más tarde.', 'danger')
+      });
     }
   }
 

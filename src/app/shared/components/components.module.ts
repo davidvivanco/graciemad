@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SeminarFormComponent } from './seminar-form/seminar-form.component';
 import { SharedModule } from '../shared.module';
+import { ImageModalComponent } from './image-modal/image-modal.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,14 @@ import { SharedModule } from '../shared.module';
     PricingComponent,
     ContactComponent,
     SeminarFormComponent,
+    ImageModalComponent
   ],
   exports: [
     CalendarComponent,
     PricingComponent,
     ContactComponent,
     SeminarFormComponent,
-    
+    ImageModalComponent
   ],
   imports: [
     FormsModule,

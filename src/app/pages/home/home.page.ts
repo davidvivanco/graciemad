@@ -1,14 +1,13 @@
-import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { IonContent, IonSlides, MenuController, ScrollCustomEvent } from '@ionic/angular';
-import { pipe, Subscription } from 'rxjs';
-import { distinctUntilChanged, take } from 'rxjs/operators';
-import { Configuration, ReadMoreType, State } from 'src/app/shared/interfaces';
+import { DomSanitizer } from '@angular/platform-browser';
+import { IonContent, IonSlides, MenuController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
+import { ValidatorEmail } from 'src/app/shared/custom-validators';
+import { Configuration, State } from 'src/app/shared/interfaces';
 import { ScreenSizeService } from 'src/app/shared/services/screen-size.service';
 import { ScrollContentService } from 'src/app/shared/services/scroll-content.service';
-import { FirebaseStorageService } from 'src/app/shared/services/storage.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
 
 @Component({
@@ -71,7 +70,7 @@ export class HomePage implements OnInit, OnDestroy {
 
     this.year = new Date().getFullYear().toString();
     this.formGroup = this.formBuilder.group({
-      email: [null, [Validators.required]],
+      email: [null, [Validators.required, ValidatorEmail]],
       message: [null, [Validators.required]],
     })
 
@@ -86,10 +85,10 @@ export class HomePage implements OnInit, OnDestroy {
     )
 
     this.screenSizeService.isDesktopView()
-    .pipe(distinctUntilChanged())
-    .subscribe(isDesktop => {
-      this.scrollContent.content = this.content;
-    })
+      .pipe(distinctUntilChanged())
+      .subscribe(isDesktop => {
+        this.scrollContent.content = this.content;
+      })
   }
 
 

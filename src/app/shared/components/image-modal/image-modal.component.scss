@@ -1,0 +1,63 @@
+@import '../../../../theme/utils/utils.scss';
+
+.close-fake {
+    --background: transparent;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+        font-size: 2rem;
+    }
+}
+
+ion-row {
+    --background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.image-slide,
+.image-card {
+    overflow: visible;
+}
+
+.image-card {
+    z-index: 9;
+
+}
+
+.close-icon {
+    position: fixed;
+    color: var(white);
+    top: 35px;
+    right: 45px;
+    color: white;
+    z-index: 10;
+    transform: scale(1.6);
+}
+
+.zoom-focus {
+    z-index: 11;
+    overflow: visible;
+}
+
+img {
+    max-width: 300px;
+    max-height: 800px;
+    @include screen-desktop {
+        max-width: 1000px;
+        max-height: 800px;
+    }
+}
+
+ion-slides {
+    ion-slide {
+        height: 80vw;
+    }
+
+}

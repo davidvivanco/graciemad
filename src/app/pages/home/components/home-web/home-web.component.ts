@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonContent,  } from '@ionic/angular';
+import { IonContent, } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { ValidatorEmail } from 'src/app/shared/custom-validators';
 import { Configuration, State } from 'src/app/shared/interfaces';
@@ -19,8 +19,10 @@ export class HomeWebComponent implements OnInit, OnDestroy {
   year: string;
   subs: Subscription;
   slideOpts: any;
-  @ViewChild(IonContent, { static: false }) content: IonContent;
+  emailSent: boolean;
   state: Partial<State>;
+
+  @ViewChild(IonContent, { static: false }) content: IonContent;
 
   constructor(
     public utils: UtilsService,
@@ -34,7 +36,7 @@ export class HomeWebComponent implements OnInit, OnDestroy {
     this.openMenu = true;
     this.subs = new Subscription();
     this.formGroup = this.formBuilder.group({
-      email: [null, [Validators.required ,ValidatorEmail]],
+      email: [null, [Validators.required, ValidatorEmail]],
       message: [null, []],
     })
   }
@@ -60,8 +62,21 @@ export class HomeWebComponent implements OnInit, OnDestroy {
     this.openMenu = !this.openMenu;
   }
 
-  send(){
-    
+  async sendInfoEmail() {
+    this.formGroup.markAsTouched();
+    if (this.formGroup.valid) {
+      const loading = await this.utils.presentLoading()
+      const email = this.formGroup.value.email;
+      const text = this.formGroup.value.message;
+      this.utils.sendInfoEmail(text, email).subscribe(() => {
+        loading.dismiss();
+        this.utils.presentToast('Email enviado con exito.', 'success');
+        this.emailSent = true;
+      }, () => {
+        loading.dismiss();
+        this.utils.presentToast('¡Ups!. Algo no fue bien. Inténtalo más tarde.', 'danger')
+      });
+    }
   }
 
 }

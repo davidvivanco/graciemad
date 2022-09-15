@@ -2,10 +2,10 @@
   <div class="calendar">
     <div class="front">
       <div class="current-date">
-        <h1>{{'schedule' | translate}}</h1>
+        <h1 class="dark-color">{{'schedule' | translate}}</h1>
       </div>
       <div class="current-month">
-        <div class="week-days" [ngClass]="{'ios':utils.isSafari()}">
+        <div class="week-days dark-color" [ngClass]="{'ios':utils.isSafari()}">
           <div [ngClass]="{'today': day === 1}">{{'monday' | translate}}</div>
           <div [ngClass]="{'today': day === 2}">{{'tuesday' | translate}}</div>
           <div [ngClass]="{'today': day === 3}">{{'wednesday' | translate}}</div>
@@ -15,25 +15,25 @@
           <div [ngClass]="{'today': day === 7}">{{'sunday' | translate}}</div>
         </div>
         <div class="week-days-container">
-          <div class="hour">17:45 <br> 18:45</div>
+          <div class="hour dark-color">17:45 <br> 18:45</div>
           <div class="week-days">
             <div class="day-work">
               <ion-icon slot="start" name="person-outline"></ion-icon>
             </div>
-            <div class="day-off">X</div>
+            <div class="day-off dark-color">X</div>
             <div class="day-work">
               <ion-icon slot="start" name="person-outline"></ion-icon>
             </div>
-            <div class="day-off">X</div>
+            <div class="day-off dark-color">X</div>
             <div class="day-work">
               <ion-icon slot="start" name="person-outline"></ion-icon>
             </div>
-            <div class="day-off">X</div>
-            <div class="day-off">X</div>
+            <div class="day-off dark-color">X</div>
+            <div class="day-off dark-color">X</div>
           </div>
         </div>
         <div class="week-days-container">
-          <div class="hour">18:45 <br> 19:45</div>
+          <div class="hour dark-color">18:45 <br> 19:45</div>
           <div class="week-days">
             <div class="day-work">
               <ion-icon slot="start" name="person-outline"></ion-icon>
@@ -52,44 +52,44 @@
               <ion-icon slot="start" name="person-outline"></ion-icon>
             </div>
 
-            <div class="day-off">X</div>
-            <div class="day-off">X</div>
+            <div class="day-off dark-color">X</div>
+            <div class="day-off dark-color">X</div>
           </div>
         </div>
         <div class="week-days-container">
-          <div class="hour" [ngClass]="{'ios':utils.isSafari()}">19:45 <br> 20:45</div>
+          <div class="hour dark-color" [ngClass]="{'ios':utils.isSafari()}">19:45 <br> 20:45</div>
           <div class="week-days">
-            <div class="day-work"><img class="gi-calendar" src="assets/images/gi.svg" /></div>
-            <div class="day-off">X</div>
-            <div> <img class="gi-calendar day-work" src="assets/images/gi.svg" /></div>
-            <div class="day-off">X</div>
-            <div> <img class="gi-calendar day-work" src="assets/images/gi.svg" /></div>
-            <div class="day-off">X</div>
-            <div class="day-off">X</div>
+            <div class="day-work"><img class="gi-calendar" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" /></div>
+            <div class="day-off dark-color">X</div>
+            <div> <img class="gi-calendar day-work" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" /></div>
+            <div class="day-off dark-color">X</div>
+            <div> <img class="gi-calendar day-work" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" /></div>
+            <div class="day-off dark-color">X</div>
+            <div class="day-off dark-color">X</div>
           </div>
         </div>
         <div class="week-days-container">
-          <div class="hour">20:45 <br> 21:45</div>
+          <div class="hour dark-color">20:45 <br> 21:45</div>
           <div class="week-days">
-            <div> <img class="mma-calendar day-work" src="assets/images/grappling.png" /></div>
-            <div class="day-off">X</div>
-            <div> <img class="mma-calendar day-work" src="assets/images/grappling.png" /></div>
-            <div class="day-off">X</div>
-            <div> <img class="mma-calendar day-work" src="assets/images/grappling.png" /></div>
-            <div class="day-off">X</div>
-            <div class="day-off">X</div>
+            <div> <img class="mma-calendar day-work" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" /></div>
+            <div class="day-off dark-color">X</div>
+            <div> <img class="mma-calendar day-work" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" /></div>
+            <div class="day-off dark-color">X</div>
+            <div> <img class="mma-calendar day-work" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" /></div>
+            <div class="day-off dark-color">X</div>
+            <div class="day-off dark-color">X</div>
           </div>
         </div>
         <div class="week-days-container">
-          <div class="hour">20:45 <br> 21:45</div>
+          <div class="hour dark-color">20:45 <br> 21:45</div>
           <div class="week-days">
-            <div class="day-work"><img class="mma-calendar" src="assets/images/mma.png" /></div>
-            <div class="day-off">X</div>
-            <div> <img class="mma-calendar day-work" src="assets/images/mma.png" /></div>
-            <div class="day-off">X</div>
-            <div> <img class="mma-calendar day-work" src="assets/images/mma.png" /></div>
-            <div class="day-off">X</div>
-            <div class="day-off">X</div>
+            <div class="day-work"><img class="mma-calendar" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" /></div>
+            <div class="day-off dark-color">X</div>
+            <div> <img class="mma-calendar day-work" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" /></div>
+            <div class="day-off dark-color">X</div>
+            <div> <img class="mma-calendar day-work" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" /></div>
+            <div class="day-off dark-color">X</div>
+            <div class="day-off dark-color">X</div>
           </div>
         </div>
       </div>

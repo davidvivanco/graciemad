@@ -1,6 +1,6 @@
 <ion-app>
   <div class="loading" *ngIf="loading">
-    <img src="assets/images/logo.png" />
+    <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Flogo.png?alt=media&token=c39356c6-9ab5-44ad-b207-056ad4950957" />
   </div>
 
   <ion-router-outlet [animated]="true" id="main"></ion-router-outlet>
@@ -38,8 +38,8 @@
           <ion-label>{{'where.we.are' | translate}}</ion-label>
         </ion-item>
         <ion-item (click)="changeLang()">
-          <img *ngIf="lang === 'es'" id="flag-icon" src="assets/images/united-kingdom.png" slot="start">
-          <img *ngIf="lang === 'en'" id="flag-icon" src="assets/images/spain.png" slot="start">
+          <img *ngIf="lang === 'es'" id="flag-icon" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Funited-kingdom.png?alt=media&token=e84cb850-40c7-42a7-90a4-ea324eb0fce1" slot="start">
+          <img *ngIf="lang === 'en'" id="flag-icon" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fspain.png?alt=media&token=8e644bd0-f17e-4433-9121-9011c113cd87" slot="start">
         </ion-item>
       </ion-list>
     </ion-content>

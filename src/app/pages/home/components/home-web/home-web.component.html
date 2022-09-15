@@ -5,7 +5,7 @@
         <app-seminar-form></app-seminar-form>
       </div>
       <div class="robin">
-        <img src="assets/images/robin_banner.png" alt="">
+        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/robin_banner.png?alt=media&token=de6d6df6-0e88-43f2-b34a-ea5e17cfd34b" alt="">
       </div>
     </div>
     <div class="reading">
@@ -22,7 +22,7 @@
             <div class="mt-xxs time-to-read"> 4m {{'time.to.read' | translate}}</div>
           </div>
           <div>
-            <img width="110" height="110" src="assets/images/helio.png" />
+            <img width="110" height="110" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/helio.png?alt=media&token=5f229078-edc2-4d24-941f-20f046458d3b" />
           </div>
         </div>
         <div class="flex js-s mt-sm item" (click)="utils.openReadMore('benefits',state)">
@@ -34,7 +34,7 @@
             <div class="mt-xxs time-to-read"> 5m {{'time.to.read' | translate}}</div>
           </div>
           <div>
-            <img width="110" height="110" src="assets/images/jiu-jitsu.jpg" />
+            <img width="110" height="110" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/jiu-jitsu.jpg?alt=media&token=f6e58d20-5ca9-4e51-985e-3674e393a2e6" />
           </div>
         </div>
         <div class="flex js-s mt-sm item" (click)="utils.openReadMore('mma',state)">
@@ -46,7 +46,7 @@
             <div class="mt-xxs time-to-read"> 4m {{'time.to.read' | translate}}</div>
           </div>
           <div>
-            <img width="110" height="110" src="assets/images/gloves.jpg" />
+            <img width="110" height="110" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/gloves.jpg?alt=media&token=69ccb21e-8999-44b1-9e77-2a387c1bd66f" />
           </div>
         </div>
       </ion-list>
@@ -61,15 +61,15 @@
     </div>
     <div class="legend mt-sm">
       <div class="flex flex-ai-c">
-        <img class="gi" src="assets/images/gi.svg" />
+        <img class="gi" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" />
         <div class="ml-sm fs21">Jiu-Jitsu</div>
       </div>
       <div class="flex flex-ai-c">
-        <img class="gi" src="assets/images/grappling.png" />
+        <img class="gi" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" />
         <div class="ml-sm fs21">Grappling</div>
       </div>
       <div class="flex flex-ai-c">
-        <img class="gi" src="assets/images/mma.png" />
+        <img class="gi" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" />
         <div class="ml-sm fs21">MMA</div>
       </div>
       <div class="flex flex-ai-c">
@@ -81,7 +81,7 @@
   <div class="contact">
     <div class="where-we-are">
       <div>
-        <div class="flex text">
+        <div class="flex text dark-title">
           <ion-icon name="navigate" color="secondary"></ion-icon>
           <span class="ml-s bold t-upper title"> {{'where.we.are' | translate}}
           </span>
@@ -97,18 +97,18 @@
     </div>
     <div class="send-email">
       <div>
-        <div class="flex ml-s">
+        <div class="flex ml-s dark-title">
           <ion-icon name="mail" color="secondary"></ion-icon>
           <span class="ml-s bold t-upper title"> {{'contact.label' | translate}}
           </span>
         </div>
-        <div class="ml-s">
+        <div class="ml-s mt-s">
           {{'contact.desc'| translate}}
         </div>
         <form [formGroup]="formGroup" *ngIf="formGroup" class="mt-sm">
           <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
             <ion-label position="stacked">{{'form.email.label' |translate}}</ion-label>
-            <ion-input formControlName="email"></ion-input>
+            <ion-input type="email" formControlName="email"></ion-input>
           </ion-item>
           <ion-item class="mt-sm"
             [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['message']?.errors?.required}">
@@ -117,13 +117,13 @@
           </ion-item>
         </form>
         <div class="flex flex-jc-c mt-sm mb-s">
-          <ion-button mode="md" (click)="send()"
+          <ion-button [disabled]="emailSent" mode="md" (click)="sendInfoEmail()"
            expand="block" color="secondary" class="fat-btn">{{'btn.send' |translate}}
           </ion-button>
         </div>
       </div>
       <div class="flex flex-jc-c flex-ai-c w100 mt-m follow-us">
-        <div class="flex ml-sm">
+        <div class="flex ml-sm dark-title">
           <ion-icon name="person-add" color="secondary"></ion-icon>
           <span class="bold t-upper title"> {{'social.media.follow' | translate}}
           </span>

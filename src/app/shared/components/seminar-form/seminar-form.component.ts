@@ -39,17 +39,19 @@ export class SeminarFormComponent implements OnInit {
     )
   }
 
-  async sendEmail() {
-    const loading = await this.utils.presentLoading()
+  async sendEmail(date) {
     this.formGroup.markAsTouched();
     if (this.formGroup.valid) {
+      const loading = await this.utils.presentLoading()
       const body = {
         name: this.formGroup.value.name,
         email: this.formGroup.value.email,
+        date,
+        type: 'seminar'
       }
       this.http.post(this.apiUrl, body).subscribe((res) => {
         loading.dismiss();
-        this.utils.presentToast('Email enviado con exito');
+        this.utils.presentToast('Email enviado con exito. Recibirás un email con toda la información', 'success');
       }, () => {
         loading.dismiss();
         this.utils.presentToast('¡Ups!. Algo no fue bien. Inténtalo más tarde.', 'danger')

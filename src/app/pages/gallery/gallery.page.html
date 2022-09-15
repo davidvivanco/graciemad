@@ -3,46 +3,41 @@
     <ion-icon (click)="utils.navTo('')" color="primary" slot="end" class="mr-sm" size="large" name="arrow-back-outline">
     </ion-icon>
   </ion-toolbar>
+  <ion-segment *ngIf="!utils.isDesktop" [(ngModel)]="segment" (ionChange)="segmentChanged($event)" class="mb-s">
+    <ion-segment-button value="single">
+      <ion-icon name="image-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="grid">
+      <ion-icon name="grid-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
-<ion-content >
-  <ion-col class="ion-no-padding gallery mb-l">
-    <div class="row1">
-      <div class="col1"></div>
-      <div class="flex flex-column col2">
-        <div class="img1 bg-img"></div>
-        <div class="img2 bg-img"></div>
-      </div>
-    </div>
-    <div class="row2 flex flex-ai-c flex-jc-c">
-      <div class="col1 bg-img"></div>
-    </div>
-    <div class="row3 flex flex-ai-c flex-jc-c">
-      <div class="col1 bg-img"></div>
-      <div class="col2 bg-img"></div>
-    </div>
-    <div class="row4 flex flex-ai-c flex-jc-c">
-      <div class="col1 bg-img"></div>
-    </div>
-    <div class="row5">
-      <div class="flex flex-column col2">
-        <div class="img1 bg-img"></div>
-        <div class="img2 bg-img"></div>
-      </div>
-      <div class="col1"></div>
-    </div>
-    <div  class="row6 flex flex-ai-c flex-jc-c">
-      <div class="col1 bg-img"></div>
-    </div>
-    <div class="row7 flex flex-ai-c flex-jc-c">
-      <div class="col1 bg-img"></div>
-      <div class="col2 bg-img"></div>
-    </div>
-    <div class="row8 pb-m">
-      <div class="col1"></div>
-      <div class="flex flex-column col2">
-        <div class="img1 bg-img"></div>
-        <div class="img2 bg-img"></div>
-      </div>
-    </div>
-  </ion-col>
+<ion-content [ngClass]="{'ion-padding':utils.isDesktop}">
+  <ion-grid *ngIf="loading">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="2.5" *ngFor="let e of [].constructor(20)">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="utils.isDesktop" [ngClass]="{'hidden':loading}">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="2.5" *ngFor="let photo of photos" (click)="utils.zoom(photo)">
+        <img [src]="photo" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!utils.isDesktop" class="ion-no-padding">
+    <ion-row class="ion-no-padding">
+      <ion-col [ngClass]="{'mobile-img-col-grid': segment === 'grid'}" (click)="detailPhoto()"
+        [size]="segment === 'single'?'12' :'6'" class="mobile-img-col" *ngFor="let photo of mobilePhotos">
+        <img [src]="photo" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll *ngIf="!utils.isDesktop" threshold="100px" (ionInfinite)="loadPhotos($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more photos...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

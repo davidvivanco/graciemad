@@ -2,6 +2,15 @@
 @import "../../../../../theme/utils/utils.scss";
 
 .main {
+    @media (min-width: 1280px) {
+        box-sizing: content-box;
+        margin: 0 auto;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1280px;
+        padding: 0;
+    }
+
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -123,6 +132,7 @@
 
 
 .contact {
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,6 +157,7 @@
     }
 
     .where-we-are {
+        
         width: 50%;
         color: white;
         flex-direction: column;

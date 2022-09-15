@@ -1,14 +1,14 @@
 <div class="flex flex-jc-c flex-column info">
   <div class="title mt-xs"> {{'robin.seminar.title' | translate}}
-    {{conf?.seminar?.date.toMillis() | date:'fullDate':'es'}}
-    - {{conf?.seminar?.date.toMillis() | date:'shortTime':'es'}}
+    <span #day>{{conf?.seminar?.date.toMillis() | date:'fullDate':'es'}}</span>
+    - <span #hour>{{conf?.seminar?.date.toMillis() | date:'shortTime':'es'}}</span>
   </div>
   <div class="more-info">
     {{'robin.seminar.info' | translate}}
   </div>
   <div class="flex flex-jc-c mt-m">
     <form [formGroup]="formGroup" *ngIf="formGroup">
-      <ion-item [ngClass]="{'invalid': formGroup.touched &&  formGroup?.controls['name']?.errors?.required}">
+      <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['name']?.errors?.required}">
         <ion-label position="stacked">{{'form.name.label' |translate}} *</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
@@ -18,7 +18,8 @@
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
       <div class="flex flex-jc-c mt-sm">
-        <ion-button [disabled]="emailSent" (click)="sendEmail()" expand="" mode="md" color="secondary" class="mt-sm">
+        <ion-button [disabled]="emailSent" (click)="sendEmail(day.innerHTML + ' ' +hour.innerHTML)" expand="" mode="md"
+          color="secondary" class="mt-sm btn">
           {{'btn.send' |translate}}
         </ion-button>
       </div>

@@ -1,0 +1,14 @@
+<ion-row class="ion-padding">
+  <div class="close-fake">
+    <ion-icon class="close-icon" (click)="onBack()" name="close" slot="start"></ion-icon>
+    <div #card class="image-card">
+      <ion-slides class="image-slide" [options]="sliderOpts" #slider>
+        <ion-slide>
+          <div class="swiper-zoom-container" (touchend)="touchEnd(slider,card)" (touchstart)="touchStart(card)">
+            <img  [src]="imgSrc" alt="">
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+</ion-row>

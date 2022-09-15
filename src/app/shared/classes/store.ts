@@ -3,7 +3,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 
 export class StoreUtils<T> {
 
-  private state$: Subject<Partial<T>>;
+  private state$: BehaviorSubject<Partial<T>>;
 
   setState(state: Partial<T> = {}) {
     this.state$ = new BehaviorSubject<Partial<T>>(state);
@@ -12,6 +12,10 @@ export class StoreUtils<T> {
   getState() {
     if (!this.state$) this.setState();
     return this.state$.asObservable();
+  }
+
+  getLastState(){
+    return this.state$.getValue();
   }
 
   updateState(state: Partial<T>) {

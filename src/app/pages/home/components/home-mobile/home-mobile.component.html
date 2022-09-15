@@ -1,7 +1,7 @@
 
 
 <div *ngIf="conf?.seminar?.active" class="robin-seminar mt-s">
-  <img src="assets/images/robin_banner.png" alt="">
+  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/robin_banner.png?alt=media&token=de6d6df6-0e88-43f2-b34a-ea5e17cfd34b" alt="">
 </div>
 <div class="parallax-image default-img" *ngIf="!conf?.seminar?.active">
 </div>
@@ -16,7 +16,7 @@
     </div>
     <ion-item class="mt-s" (click)="utils.openReadMore('history',state)">
       <ion-thumbnail slot="end">
-        <img src="assets/images/helio.png" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/helio.png?alt=media&token=5f229078-edc2-4d24-941f-20f046458d3b" />
       </ion-thumbnail>
       <ion-label>
         <h2>{{'section1.p1.title' | translate}}</h2>
@@ -26,7 +26,7 @@
     </ion-item>
     <ion-item class="mt-s" (click)="utils.openReadMore('benefits',state)">
       <ion-thumbnail slot="end">
-        <img src="assets/images/jiu-jitsu.jpg" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/jiu-jitsu.jpg?alt=media&token=f6e58d20-5ca9-4e51-985e-3674e393a2e6" />
       </ion-thumbnail>
       <ion-label>
         <h2>{{'section1.p2.title' | translate}}</h2>
@@ -36,7 +36,7 @@
     </ion-item>
     <ion-item class="mt-s" (click)="utils.openReadMore('mma',state)">
       <ion-thumbnail slot="end">
-        <img src="assets/images/gloves.jpg" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/gloves.jpg?alt=media&token=69ccb21e-8999-44b1-9e77-2a387c1bd66f" />
       </ion-thumbnail>
       <ion-label>
         <h2>{{'section1.p3.title' | translate}}</h2>
@@ -46,18 +46,18 @@
     </ion-item>
   </ion-list>
   <ion-col class="ion-padding main__our-classes" size="12" *ngIf="conf">
-    <div class="flex flex-ai-c pl-19 title mb-sm">
+    <div class="flex flex-ai-c pl-19 title mb-sm pricing-title-dark">
       <ion-icon name="card"></ion-icon>
       <span class="ml-s bold t-upper"> {{'pricing' | translate}}</span>
     </div>
-    <ion-slides class="ion-padding" #slider [options]="slideOpts">
+    <ion-slides class="ion-padding dark-slides-princing" #slider [options]="slideOpts">
       <ion-slide *ngIf="conf?.pricing[0]?.active">
         <div class="flip-card">
           <div class="flip-card-inner" #card1>
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="assets/images/gi.svg" alt="gi">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
                 </div>
                 <div class="title">
                   Jiu-Jitsu
@@ -75,7 +75,7 @@
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="assets/images/gi.svg" alt="gi">
+                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
@@ -108,7 +108,7 @@
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="assets/images/grappling.png" alt="gi">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" alt="gi">
                 </div>
                 <div class="title  mt-s">
                   Grappling
@@ -120,13 +120,13 @@
               <div class="flex flex-jc-c btn">
                 <ion-button [ngClass]="{'hidden':flipped2}" color="secondary" mode="md" (click)="rotateCard(card2,2)"
                   class="fat-btn mt-sm">
-                  <span>{{' price' | translate}}</span>
+                  <span>{{'price' | translate}}</span>
                 </ion-button>
               </div>
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="assets/images/grappling.png" alt="gi">
+                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" alt="gi">
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
@@ -159,7 +159,7 @@
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="assets/images/mma.png" alt="gi">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
                 </div>
                 <div class="title  mt-s">
                   MMA
@@ -177,7 +177,7 @@
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="assets/images/mma.png" alt="gi">
+                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
@@ -210,8 +210,8 @@
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="assets/images/gi.svg" alt="gi">
-                  <img src="assets/images/mma.png" alt="gi">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
                 </div>
                 <div class="title  mt-s">
                   Jiu-Jitsu + MMA
@@ -229,8 +229,8 @@
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="assets/images/gi.svg" alt="gi">
-                <img src="assets/images/mma.png" alt="gi">
+                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
+                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
@@ -317,20 +317,20 @@
     <div class="legend mt-sm">
       <div>
         <div class="flex flex-ai-c">
-          <img class="gi" src="assets/images/gi.svg" />
+          <img class="gi" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" />
           <div class="ml-s">Jiu-Jitsu</div>
         </div>
         <div class="flex flex-ai-c mt-sm">
-          <img class="gi" src="assets/images/grappling.png" />
+          <img class="gi" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" />
           <div class="ml-s">Grappling</div>
         </div>
       </div>
       <div>
         <div class="flex flex-ai-c">
-          <img class="mma" src="assets/images/mma.png" />
+          <img class="mma" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" />
           <div class="ml-s">MMA</div>
         </div>
-        <div class="flex flex-ai-c mt-sm">
+        <div class="flex flex-ai-c mt-sm ">
           <ion-icon size="large" slot="start" name="person-outline"></ion-icon>
           <div>{{'pricing.private.title' | translate}}</div>
         </div>
@@ -339,7 +339,7 @@
   </ion-col>
   <ion-row class="contact-row ion-no-padding w100 mt-l">
     <ion-col size="12" class="ion-padding pt-m main__contact" id="anchorName">
-      <div class="flex">
+      <div class="flex dark-title">
         <ion-icon name="navigate" color="secondary"></ion-icon>
         <span class="ml-s bold t-upper"> {{'where.we.are' | translate}}
         </span>
@@ -355,7 +355,7 @@
         <iframe width="700" height="400" id="gmap_canvas" [src]="utils?.urlGoogleMaps" frameborder="0" scrolling="no"
           marginheight="0" marginwidth="0"></iframe>
       </div>
-      <div class="flex ml-s">
+      <div class="flex ml-s dark-title">
         <ion-icon name="mail" color="secondary"></ion-icon>
         <span class="ml-s bold t-upper title"> {{'contact.label' | translate}}
         </span>
@@ -363,17 +363,27 @@
       <div class="mt-s">
         {{'contact.desc'| translate}}
       </div>
+      <form [formGroup]="formGroup" *ngIf="formGroup" class="mt-sm">
+        <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
+          <ion-label position="stacked">{{'form.email.label' |translate}}</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item class="mt-sm"
+          [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['message']?.errors?.required}">
+          <ion-label position="stacked">{{'form.message.label' |translate}}</ion-label>
+          <ion-textarea maxlength="30" formControlName="message" [rows]="4"></ion-textarea>
+        </ion-item>
+      </form>
       <div class="flex flex-jc-c mt-sm mb-s">
-        <ion-button mode="md" (click)="send()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
+        <ion-button mode="md" [disabled]="emailSent" (click)="sendInfoEmail()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
         </ion-button>
       </div>
       <div class="flex flex-jc-c flex-ai-c w100 mt-m follow-us">
-        <div class="flex ml-sm">
+        <div class="flex ml-sm dark-title">
           <ion-icon name="person-add" color="secondary"></ion-icon>
           <span class="bold t-upper ml-s"> {{'social.media.follow' | translate}}
           </span>
         </div>
-        <!-- <div> {{'social.media.follow' | translate}}</div> -->
         <div class="flex flex-jc-c flex-ai-c ml-s">
           <ion-icon (click)="utils?.openFacebook()" class="fs21" name="logo-facebook"></ion-icon>
           <ion-icon (click)="utils?.openInstagram()" class="ml-s fs21" name="logo-instagram"></ion-icon>

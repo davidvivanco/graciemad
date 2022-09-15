@@ -1,21 +1,35 @@
 import { Injectable } from '@angular/core';
 import { SafariViewController } from '@awesome-cordova-plugins/safari-view-controller/ngx';
-import { LoadingController, MenuController, NavController, Platform, ToastController } from '@ionic/angular';
+import { LoadingController, MenuController, ModalController, NavController, Platform, ToastController } from '@ionic/angular';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { ReadMoreType, State } from '../interfaces';
 import { StoreUtils } from '../classes/store';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { ScrollContentService } from './scroll-content.service';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, first, map, share, tap } from 'rxjs/operators';
+import { NavigationEnd, Router } from '@angular/router';
+import { ImageModalComponent } from '../components/image-modal/image-modal.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService extends StoreUtils<State> {
+  static isCordova;
+
+
   readonly urlGoogleMaps: SafeResourceUrl;
   readonly urlFacebook: string;
   readonly urlInstagram: string;
+  readonly apiUrl: string;
   lang: 'es' | 'en';
+
+  isFirstPage$ = new BehaviorSubject(true);
+  previousPage = '';
+  currentPage = '';
+  private _onPageChange$;
 
   constructor(
     private loadingController: LoadingController,
@@ -24,16 +38,57 @@ export class UtilsService extends StoreUtils<State> {
     private iab: InAppBrowser,
     private translate: TranslateService,
     private menu: MenuController,
+    private router: Router,
     private nav: NavController,
     public sanitizer: DomSanitizer,
     private scrollContent: ScrollContentService,
-    private safariViewController: SafariViewController) {
+    private http: HttpClient,
+    private modalCtrl: ModalController,
+    private safariViewController: SafariViewController
+  ) {
     super();
+    this.onPageChange$()
+      .pipe(first())
+      .subscribe(() => this.isFirstPage$.next(false));
+    UtilsService.isCordova = this.platform.is('cordova');
+
     this.lang = 'es';
+    this.apiUrl = 'https://1r2ee49qlj.execute-api.eu-central-1.amazonaws.com/dev/sendemail';
     this.urlFacebook = 'https://www.facebook.com/graciemadridbjj/';
     this.urlInstagram = 'https://www.instagram.com/gracie_madrid_academy/';
     this.urlGoogleMaps = this.sanitizer.bypassSecurityTrustResourceUrl('https://maps.google.com/maps?q=icih%20ban%20alcala&t=&z=13&ie=UTF8&iwloc=&output=embed');
 
+  }
+
+
+  onPageChange$(): Observable<string> {
+    if (!this._onPageChange$) {
+      this._onPageChange$ = this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(
+          (navigation: NavigationEnd) =>
+            navigation.urlAfterRedirects || navigation.url
+        ),
+        tap(url => {
+          this.previousPage = this.currentPage;
+          this.currentPage = url;
+        }),
+        share()
+      );
+    }
+
+    return this._onPageChange$;
+  }
+
+  async zoom(imgSrc) {
+    const modal = await this.modalCtrl.create({
+      component: ImageModalComponent,
+      componentProps: {
+        imgSrc
+      }
+    })
+
+    await modal.present();
   }
 
   changeLang() {
@@ -87,7 +142,7 @@ export class UtilsService extends StoreUtils<State> {
   }
 
   async openGallery(state: Partial<State>) {
-    this.updateState({ ...state, loading: true })
+    // this.updateState({ ...state, loading: true })
     this.closeMenu();
     this.nav.navigateForward('gallery')
   }
@@ -130,6 +185,17 @@ export class UtilsService extends StoreUtils<State> {
     await loading.present();
     return loading;
   }
+
+  sendInfoEmail(text: string, email: string) {
+    const body = {
+      text,
+      email,
+      type: 'info'
+    }
+    return this.http.post(this.apiUrl, body)
+
+  }
+
 
   async presentToast(message: string, color?: string) {
     const toast = await this.toastController.create({

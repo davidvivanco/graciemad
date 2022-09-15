@@ -129,8 +129,17 @@
     margin-left: 48px;
 }
 
+.ml-xl {
+    margin-left: 52px;
+}
+
+
 .mr-l {
     margin-right: 48px;
+}
+
+.mr-l {
+    margin-right: 52px;
 }
 
 // Extra large
@@ -298,6 +307,10 @@
 
 .flex {
     display: flex;
+}
+
+.jc-sb{
+    justify-content: space-between;
 }
 
 .flex-row {

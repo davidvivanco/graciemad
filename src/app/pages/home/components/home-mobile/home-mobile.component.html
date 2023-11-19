@@ -1,101 +1,130 @@
-
-
-<div *ngIf="conf?.seminar?.active" class="robin-seminar mt-s">
-  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/robin_banner.png?alt=media&token=de6d6df6-0e88-43f2-b34a-ea5e17cfd34b" alt="">
-</div>
-<div class="parallax-image default-img" *ngIf="!conf?.seminar?.active">
-</div>
 <div class="main">
-  <div class="flex flex-jc-c w-100 mt-sm" *ngIf="conf?.seminar?.active">
-    <app-seminar-form></app-seminar-form>
+  <div class="banner">
+    <img src="./assets/images/banner_mobile.png" alt="" />
   </div>
-  <ion-list class="reading-list">
+  <!-- <ion-list class="reading-list">
     <div class="flex flex-ai-c pl-19">
       <ion-icon name="book-sharp"></ion-icon>
-      <span class="ml-s bold t-upper"> {{'section1.title' | translate}}</span>
+      <span class="ml-s bold t-upper"> {{ "section1.title" | translate }}</span>
     </div>
-    <ion-item class="mt-s" (click)="utils.openReadMore('history',state)">
+    <ion-item class="mt-s" (click)="utils.openReadMore('history', state)">
       <ion-thumbnail slot="end">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/helio.png?alt=media&token=5f229078-edc2-4d24-941f-20f046458d3b" />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/helio.png?alt=media&token=5f229078-edc2-4d24-941f-20f046458d3b"
+        />
       </ion-thumbnail>
       <ion-label>
-        <h2>{{'section1.p1.title' | translate}}</h2>
-        <h3>{{'section1.p1.pre.text' | translate}}</h3>
-        <p> 4m {{'time.to.read' | translate}}</p>
+        <h2>{{ "section1.p1.title" | translate }}</h2>
+        <h3>{{ "section1.p1.pre.text" | translate }}</h3>
+        <p>4m {{ "time.to.read" | translate }}</p>
       </ion-label>
     </ion-item>
-    <ion-item class="mt-s" (click)="utils.openReadMore('benefits',state)">
+    <ion-item class="mt-s" (click)="utils.openReadMore('benefits', state)">
       <ion-thumbnail slot="end">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/jiu-jitsu.jpg?alt=media&token=f6e58d20-5ca9-4e51-985e-3674e393a2e6" />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/jiu-jitsu.jpg?alt=media&token=f6e58d20-5ca9-4e51-985e-3674e393a2e6"
+        />
       </ion-thumbnail>
       <ion-label>
-        <h2>{{'section1.p2.title' | translate}}</h2>
-        <h3>{{'section1.p2.pre.text' | translate}}</h3>
-        <p> 5m {{'time.to.read' | translate}}</p>
+        <h2>{{ "section1.p2.title" | translate }}</h2>
+        <h3>{{ "section1.p2.pre.text" | translate }}</h3>
+        <p>5m {{ "time.to.read" | translate }}</p>
       </ion-label>
     </ion-item>
-    <ion-item class="mt-s" (click)="utils.openReadMore('mma',state)">
+    <ion-item class="mt-s" (click)="utils.openReadMore('mma', state)">
       <ion-thumbnail slot="end">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/gloves.jpg?alt=media&token=69ccb21e-8999-44b1-9e77-2a387c1bd66f" />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/gloves.jpg?alt=media&token=69ccb21e-8999-44b1-9e77-2a387c1bd66f"
+        />
       </ion-thumbnail>
       <ion-label>
-        <h2>{{'section1.p3.title' | translate}}</h2>
-        <h3>{{'section1.p3.pre.text' | translate}}</h3>
-        <p>4m {{'time.to.read' | translate}}</p>
+        <h2>{{ "section1.p3.title" | translate }}</h2>
+        <h3>{{ "section1.p3.pre.text" | translate }}</h3>
+        <p>4m {{ "time.to.read" | translate }}</p>
       </ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
   <ion-col class="ion-padding main__our-classes" size="12" *ngIf="conf">
-    <div class="flex flex-ai-c pl-19 title mb-sm pricing-title-dark">
+    <div
+      class="flex flex-ai-c pl-19 title mb-sm pricing-title-dark"
+      style="padding-top: 45px"
+    >
       <ion-icon name="card"></ion-icon>
-      <span class="ml-s bold t-upper"> {{'pricing' | translate}}</span>
+      <span class="ml-s bold t-upper"> {{ "pricing" | translate }}</span>
     </div>
-    <ion-slides class="ion-padding dark-slides-princing" #slider [options]="slideOpts">
+    <ion-slides
+      style="padding-bottom:45px"
+      class="ion-padding dark-slides-princing"
+      #slider
+      [options]="slideOpts"
+    >
       <ion-slide *ngIf="conf?.pricing[0]?.active">
         <div class="flip-card">
           <div class="flip-card-inner" #card1>
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
+                  <img
+                    src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed"
+                    alt="gi"
+                  />
                 </div>
-                <div class="title">
-                  Jiu-Jitsu
-                </div>
+                <div class="title">Jiu-Jitsu</div>
               </div>
               <div class="text mt-s">
-                {{'pricing.jiujitsu' | translate}}
+                {{ "pricing.jiujitsu" | translate }}
               </div>
               <div class="flex flex-jc-c btn">
-                <ion-button [ngClass]="{'hidden':flipped1}" color="secondary" mode="md" (click)="rotateCard(card1,1)"
-                  class="fat-btn mt-sm">
-                  <span>{{ 'price' | translate}}</span>
+                <ion-button
+                  [ngClass]="{ hidden: flipped1 }"
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card1, 1)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "price" | translate }}</span>
                 </ion-button>
               </div>
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed"
+                  alt="gi"
+                />
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'three.hours.week' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "three.hours.week" | translate }}
                 </ion-label>
                 <ion-label class="mt-xs flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'without.plate' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "without.plate" | translate }}
                 </ion-label>
               </div>
               <ion-col class="mt-s flex flex-jc-c flex-ai-c badge-col">
                 <div class="badge">
-                  <span>{{conf?.pricing[0]?.price}}€</span>
-                  <span>{{'month' | translate}}</span>
+                  <span>{{ conf?.pricing[0]?.price }}€</span>
+                  <span>{{ "month" | translate }}</span>
                 </div>
               </ion-col>
               <div class="flex flex-jc-c btn">
-                <ion-button color="secondary" mode="md" (click)="rotateCard(card1,1)" class="fat-btn mt-sm">
-                  <span>{{'back' | translate}}</span>
+                <ion-button
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card1, 1)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "back" | translate }}</span>
                 </ion-button>
               </div>
             </div>
@@ -108,45 +137,67 @@
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" alt="gi">
+                  <img
+                    src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0"
+                    alt="gi"
+                  />
                 </div>
-                <div class="title  mt-s">
-                  Grappling
-                </div>
+                <div class="title mt-s">Grappling</div>
               </div>
-              <div class="text  mt-s">
-                {{'pricing.grappling' | translate}}
+              <div class="text mt-s">
+                {{ "pricing.grappling" | translate }}
               </div>
               <div class="flex flex-jc-c btn">
-                <ion-button [ngClass]="{'hidden':flipped2}" color="secondary" mode="md" (click)="rotateCard(card2,2)"
-                  class="fat-btn mt-sm">
-                  <span>{{'price' | translate}}</span>
+                <ion-button
+                  [ngClass]="{ hidden: flipped2 }"
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card2, 2)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "price" | translate }}</span>
                 </ion-button>
               </div>
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" alt="gi">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0"
+                  alt="gi"
+                />
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'three.hours.week' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "three.hours.week" | translate }}
                 </ion-label>
                 <ion-label class="mt-xs flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'without.plate' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "without.plate" | translate }}
                 </ion-label>
               </div>
               <ion-col class="mt-s flex flex-jc-c flex-ai-c badge-col">
                 <div class="badge">
-                  <span>{{conf?.pricing[1]?.price}}€</span>
-                  <span>{{'month' | translate}}</span>
+                  <span>{{ conf?.pricing[1]?.price }}€</span>
+                  <span>{{ "month" | translate }}</span>
                 </div>
               </ion-col>
               <div class="flex flex-jc-c btn">
-                <ion-button color="secondary" mode="md" (click)="rotateCard(card2,2)" class="fat-btn mt-sm">
-                  <span>{{'back' | translate}}</span>
+                <ion-button
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card2, 2)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "back" | translate }}</span>
                 </ion-button>
               </div>
             </div>
@@ -159,45 +210,67 @@
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
+                  <img
+                    src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2"
+                    alt="gi"
+                  />
                 </div>
-                <div class="title  mt-s">
-                  MMA
-                </div>
+                <div class="title mt-s">MMA</div>
               </div>
-              <div class="text  mt-s">
-                {{ 'pricing.mma' | translate}}
+              <div class="text mt-s">
+                {{ "pricing.mma" | translate }}
               </div>
               <div class="flex flex-jc-c btn">
-                <ion-button [ngClass]="{'hidden':flipped3}" color="secondary" mode="md" (click)="rotateCard(card3,3)"
-                  class="fat-btn mt-sm">
-                  <span>{{'price' | translate}}</span>
+                <ion-button
+                  [ngClass]="{ hidden: flipped3 }"
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card3, 3)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "price" | translate }}</span>
                 </ion-button>
               </div>
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2"
+                  alt="gi"
+                />
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'three.hours.week' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "three.hours.week" | translate }}
                 </ion-label>
                 <ion-label class="mt-xs flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'without.plate' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "without.plate" | translate }}
                 </ion-label>
               </div>
               <ion-col class="mt-s flex flex-jc-c flex-ai-c badge-col">
                 <div class="badge">
-                  <span>{{conf?.pricing[2]?.price}}€</span>
-                  <span>{{'month' | translate}}</span>
+                  <span>{{ conf?.pricing[2]?.price }}€</span>
+                  <span>{{ "month" | translate }}</span>
                 </div>
               </ion-col>
               <div class="flex flex-jc-c btn">
-                <ion-button color="secondary" mode="md" (click)="rotateCard(card3,3)" class="fat-btn mt-sm">
-                  <span>{{ 'back' |translate}}</span>
+                <ion-button
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card3, 3)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "back" | translate }}</span>
                 </ion-button>
               </div>
             </div>
@@ -210,47 +283,75 @@
             <div class="flip-card-front">
               <div class="header flex flex-column">
                 <div class="flex flex-jc-c w100 mt-sm">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
+                  <img
+                    src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed"
+                    alt="gi"
+                  />
+                  <img
+                    src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2"
+                    alt="gi"
+                  />
                 </div>
-                <div class="title  mt-s">
-                  Jiu-Jitsu + MMA
-                </div>
+                <div class="title mt-s">Jiu-Jitsu + MMA</div>
               </div>
-              <div class="text  mt-s">
-                {{'pricing.premium' | translate}}
+              <div class="text mt-s">
+                {{ "pricing.premium" | translate }}
               </div>
               <div class="flex flex-jc-c btn">
-                <ion-button [ngClass]="{'hidden':flipped4}" color="secondary" mode="md" (click)="rotateCard(card4,4)"
-                  class="fat-btn mt-sm">
-                  <span>{{'price' | translate}}</span>
+                <ion-button
+                  [ngClass]="{ hidden: flipped4 }"
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card4, 4)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "price" | translate }}</span>
                 </ion-button>
               </div>
             </div>
             <div class="flip-card-back">
               <div class="flex flex-jc-c w100 mt-sm">
-                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" alt="gi">
-                <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" alt="gi">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed"
+                  alt="gi"
+                />
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2"
+                  alt="gi"
+                />
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'six.hours.week' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "six.hours.week" | translate }}
                 </ion-label>
                 <ion-label class="mt-xs flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'without.plate' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "without.plate" | translate }}
                 </ion-label>
               </div>
               <ion-col class="mt-s flex flex-jc-c flex-ai-c badge-col">
                 <div class="badge">
-                  <span>{{conf?.pricing[3]?.price}}€</span>
-                  <span>{{'month' | translate}}</span>
+                  <span>{{ conf?.pricing[3]?.price }}€</span>
+                  <span>{{ "month" | translate }}</span>
                 </div>
               </ion-col>
               <div class="flex flex-jc-c btn">
-                <ion-button color="secondary" mode="md" (click)="rotateCard(card4,4)" class="fat-btn mt-sm">
-                  <span>{{'back' | translate}}</span>
+                <ion-button
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card4, 4)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "back" | translate }}</span>
                 </ion-button>
               </div>
             </div>
@@ -265,17 +366,22 @@
                 <div class="flex flex-jc-c w100 mt-sm">
                   <ion-icon name="person-outline"></ion-icon>
                 </div>
-                <div class="title  mt-s">
-                  {{'pricing.private.title' | translate}}
+                <div class="title mt-s">
+                  {{ "pricing.private.title" | translate }}
                 </div>
               </div>
-              <div class="text  mt-s">
-                {{ 'pricing.private' | translate}}
+              <div class="text mt-s">
+                {{ "pricing.private" | translate }}
               </div>
               <div class="flex flex-jc-c btn">
-                <ion-button [ngClass]="{'hidden':flipped5}" color="secondary" mode="md" (click)="rotateCard(card5,5)"
-                  class="fat-btn mt-sm">
-                  <span>{{ 'price' | translate}}</span>
+                <ion-button
+                  [ngClass]="{ hidden: flipped5 }"
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card5, 5)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "price" | translate }}</span>
                 </ion-button>
               </div>
             </div>
@@ -285,23 +391,36 @@
               </div>
               <div class="flex flex-column mt-sm">
                 <ion-label class="flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'one.hour.personal' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "one.hour.personal" | translate }}
                 </ion-label>
                 <ion-label class="mt-xs flex flex-jc-c flex-ai-c">
-                  <ion-icon color="success" class="mr-xs" name="checkmark-outline"></ion-icon>
-                  {{'flexibility.schedule' | translate}}
+                  <ion-icon
+                    color="success"
+                    class="mr-xs"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  {{ "flexibility.schedule" | translate }}
                 </ion-label>
               </div>
               <ion-col class="mt-s flex flex-jc-c flex-ai-c badge-col">
                 <div class="badge">
-                  <span>{{conf?.pricing[4]?.price}}€</span>
-                  <span class="private">{{'hour' | translate}}</span>
+                  <span>{{ conf?.pricing[4]?.price }}€</span>
+                  <span class="private">{{ "hour" | translate }}</span>
                 </div>
               </ion-col>
               <div class="flex flex-jc-c btn">
-                <ion-button color="secondary" mode="md" (click)="rotateCard(card5,5)" class="fat-btn mt-sm">
-                  <span>{{'back' | translate}}</span>
+                <ion-button
+                  color="secondary"
+                  mode="md"
+                  (click)="rotateCard(card5, 5)"
+                  class="fat-btn mt-sm"
+                >
+                  <span>{{ "back" | translate }}</span>
                 </ion-button>
               </div>
             </div>
@@ -317,22 +436,31 @@
     <div class="legend mt-sm">
       <div>
         <div class="flex flex-ai-c">
-          <img class="gi" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" />
+          <img
+            class="gi"
+            src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed"
+          />
           <div class="ml-s">Jiu-Jitsu</div>
         </div>
         <div class="flex flex-ai-c mt-sm">
-          <img class="gi" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0" />
+          <img
+            class="gi"
+            src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgrappling.png?alt=media&token=aee00c3b-841b-4f45-bff2-67fc33388ec0"
+          />
           <div class="ml-s">Grappling</div>
         </div>
       </div>
       <div>
         <div class="flex flex-ai-c">
-          <img class="mma" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2" />
+          <img
+            class="mma"
+            src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fmma.png?alt=media&token=29b6adf4-9171-4d68-9c1e-b7fc5fc580a2"
+          />
           <div class="ml-s">MMA</div>
         </div>
-        <div class="flex flex-ai-c mt-sm ">
+        <div class="flex flex-ai-c mt-sm">
           <ion-icon size="large" slot="start" name="person-outline"></ion-icon>
-          <div>{{'pricing.private.title' | translate}}</div>
+          <div>{{ "pricing.private.title" | translate }}</div>
         </div>
       </div>
     </div>
@@ -341,58 +469,116 @@
     <ion-col size="12" class="ion-padding pt-m main__contact" id="anchorName">
       <div class="flex dark-title">
         <ion-icon name="navigate" color="secondary"></ion-icon>
-        <span class="ml-s bold t-upper"> {{'where.we.are' | translate}}
+        <span class="ml-s bold t-upper">
+          {{ "where.we.are" | translate }}
         </span>
       </div>
       <div class="mt-s">
-        C. de San Bernardo, 4, 28801 Alcalá de Henares<br><span>Madrid - {{'gym' | translate}} Ichi-Ban </span>
+        C. de San Bernardo, 4, 28801 Alcalá de Henares<br /><span
+          >Madrid - {{ "gym" | translate }} Ichi-Ban
+        </span>
       </div>
       <div class="map mt-s" *ngIf="!utils.isTablet && !utils.isDesktop">
-        <iframe width="400" height="300" id="gmap_canvas" [src]="utils?.urlGoogleMaps" frameborder="0" scrolling="no"
-          marginheight="0" marginwidth="0"></iframe>
+        <iframe
+          width="400"
+          height="300"
+          id="gmap_canvas"
+          [src]="utils?.urlGoogleMaps"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe>
       </div>
       <div class="map mt-s" *ngIf="utils.isTablet || utils.isDesktop">
-        <iframe width="700" height="400" id="gmap_canvas" [src]="utils?.urlGoogleMaps" frameborder="0" scrolling="no"
-          marginheight="0" marginwidth="0"></iframe>
+        <iframe
+          width="700"
+          height="400"
+          id="gmap_canvas"
+          [src]="utils?.urlGoogleMaps"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe>
       </div>
       <div class="flex ml-s dark-title">
         <ion-icon name="mail" color="secondary"></ion-icon>
-        <span class="ml-s bold t-upper title"> {{'contact.label' | translate}}
+        <span class="ml-s bold t-upper title">
+          {{ "contact.label" | translate }}
         </span>
       </div>
       <div class="mt-s">
-        {{'contact.desc'| translate}}
+        {{ "contact.desc" | translate }}
       </div>
       <form [formGroup]="formGroup" *ngIf="formGroup" class="mt-sm">
-        <ion-item [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['email']?.errors?.required}">
-          <ion-label position="stacked">{{'form.email.label' |translate}}</ion-label>
+        <ion-item
+          [ngClass]="{
+            invalid:
+              formGroup.touched &&
+              formGroup?.controls['email']?.errors?.required
+          }"
+        >
+          <ion-label position="stacked">{{
+            "form.email.label" | translate
+          }}</ion-label>
           <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
-        <ion-item class="mt-sm"
-          [ngClass]="{'invalid': formGroup.touched && formGroup?.controls['message']?.errors?.required}">
-          <ion-label position="stacked">{{'form.message.label' |translate}}</ion-label>
-          <ion-textarea maxlength="30" formControlName="message" [rows]="4"></ion-textarea>
+        <ion-item
+          class="mt-sm"
+          [ngClass]="{
+            invalid:
+              formGroup.touched &&
+              formGroup?.controls['message']?.errors?.required
+          }"
+        >
+          <ion-label position="stacked">{{
+            "form.message.label" | translate
+          }}</ion-label>
+          <ion-textarea
+            maxlength="30"
+            formControlName="message"
+            [rows]="4"
+          ></ion-textarea>
         </ion-item>
       </form>
       <div class="flex flex-jc-c mt-sm mb-s">
-        <ion-button mode="md" [disabled]="emailSent" (click)="sendInfoEmail()" class color="secondary" class="fat-btn">{{'btn.send' |translate}}
+        <ion-button
+          mode="md"
+          [disabled]="emailSent"
+          (click)="sendInfoEmail()"
+          class
+          color="secondary"
+          class="fat-btn"
+          >{{ "btn.send" | translate }}
         </ion-button>
       </div>
       <div class="flex flex-jc-c flex-ai-c w100 mt-m follow-us">
         <div class="flex ml-sm dark-title">
           <ion-icon name="person-add" color="secondary"></ion-icon>
-          <span class="bold t-upper ml-s"> {{'social.media.follow' | translate}}
+          <span class="bold t-upper ml-s">
+            {{ "social.media.follow" | translate }}
           </span>
         </div>
         <div class="flex flex-jc-c flex-ai-c ml-s">
-          <ion-icon (click)="utils?.openFacebook()" class="fs21" name="logo-facebook"></ion-icon>
-          <ion-icon (click)="utils?.openInstagram()" class="ml-s fs21" name="logo-instagram"></ion-icon>
+          <ion-icon
+            (click)="utils?.openFacebook()"
+            class="fs21"
+            name="logo-facebook"
+          ></ion-icon>
+          <ion-icon
+            (click)="utils?.openInstagram()"
+            class="ml-s fs21"
+            name="logo-instagram"
+          ></ion-icon>
         </div>
       </div>
     </ion-col>
     <ion-col size="12" class="footer flex flex-jc-c ion-padding">
-      <div>{{year}} <span> - </span>
-        © Gracie Madrid - <small class="bold">EST.2019</small></div>
+      <div>
+        {{ year }} <span> - </span> © Gracie Madrid -
+        <small class="bold">EST.2019</small>
+      </div>
     </ion-col>
   </ion-row>
 </div>

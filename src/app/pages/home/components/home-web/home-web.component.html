@@ -1,56 +1,6 @@
 
   <div class="main">
-    <div class="seminar">
-      <div class="form">
-        <app-seminar-form></app-seminar-form>
-      </div>
-      <div class="robin">
-        <img src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/robin_banner.png?alt=media&token=de6d6df6-0e88-43f2-b34a-ea5e17cfd34b" alt="">
-      </div>
-    </div>
-    <div class="reading">
-      <ion-list>
-        <div class="flex flex-ai-c">
-          <ion-icon name="book-sharp"></ion-icon>
-          <span class="ml-s bold t-upper"> {{'section1.title' | translate}}</span>
-        </div>
-        <div class="flex js-s mt-sm item" (click)="utils.openReadMore('history',state)">
-          <div slot="start" class="label flex flex-column jc-e">
-            <div class="bold">{{'section1.p1.title' | translate}}</div>
-            <div class="mt-xxs w-90">{{'section1.p1.pre.text.web' | translate}}
-            </div>
-            <div class="mt-xxs time-to-read"> 4m {{'time.to.read' | translate}}</div>
-          </div>
-          <div>
-            <img width="110" height="110" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/helio.png?alt=media&token=5f229078-edc2-4d24-941f-20f046458d3b" />
-          </div>
-        </div>
-        <div class="flex js-s mt-sm item" (click)="utils.openReadMore('benefits',state)">
-          <div slot="start" class="label flex flex-column jc-e">
-            <div class="bold">{{'section1.p2.title' | translate}}</div>
-            <div class="mt-xxs w-90">
-              {{'section2.p2.pre.text.web' | translate}}
-            </div>
-            <div class="mt-xxs time-to-read"> 5m {{'time.to.read' | translate}}</div>
-          </div>
-          <div>
-            <img width="110" height="110" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/jiu-jitsu.jpg?alt=media&token=f6e58d20-5ca9-4e51-985e-3674e393a2e6" />
-          </div>
-        </div>
-        <div class="flex js-s mt-sm item" (click)="utils.openReadMore('mma',state)">
-          <div slot="start" class="label flex flex-column jc-e">
-            <div class="bold">{{'section1.p3.title' | translate}}</div>
-            <div class="mt-xxs w-90">
-              {{'section3.p3.pre.text.web' | translate}}
-            </div>
-            <div class="mt-xxs time-to-read"> 4m {{'time.to.read' | translate}}</div>
-          </div>
-          <div>
-            <img width="110" height="110" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/gloves.jpg?alt=media&token=69ccb21e-8999-44b1-9e77-2a387c1bd66f" />
-          </div>
-        </div>
-      </ion-list>
-    </div>
+    <img class="banner-img" src="./assets/images/banner.png" alt="">
   </div>
   <div class="pricing">
     <app-pricing [slideOpts]="{allowTouchMove: false}"></app-pricing>

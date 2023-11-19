@@ -13,10 +13,10 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item (click)="utils.scrollToPoint(0)">
+        <!-- <ion-item (click)="utils.scrollToPoint(0)">
           <ion-icon name="book-outline" slot="start"></ion-icon>
           <ion-label>{{'bit.of.read' | translate}} </ion-label>
-        </ion-item>
+        </ion-item> -->
         <ion-item (click)="utils.scrollToPoint(1300)">
           <ion-icon name="card-outline" slot="start"></ion-icon>
           <ion-label>{{'pricing' | translate}}</ion-label>
@@ -28,6 +28,10 @@
         <ion-item (click)="utils.openGallery(state)">
           <ion-icon name="images-outline" slot="start"></ion-icon>
           <ion-label>{{'gallery' | translate}}</ion-label>
+        </ion-item>
+        <ion-item (click)="utils.openUrl('https://mygi.shop/gracie-madrid')">
+          <img width="25" class="gi-calendar" src="https://firebasestorage.googleapis.com/v0/b/gracie-madrid.appspot.com/o/icons%2Fgi.svg?alt=media&token=f7e499e4-b16f-4642-bf07-fa7c1cec34ed" />
+          <ion-label class="ml-m">{{'shop' | translate}}</ion-label>
         </ion-item>
         <ion-item (click)="utils.scrollToPoint(2200)">
           <ion-icon name="mail-outline" slot="start"></ion-icon>

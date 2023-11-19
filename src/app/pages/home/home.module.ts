@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -26,6 +26,7 @@ registerLocaleData(localeEs, 'es');
     GoogleMapsModule,
     RouterModule.forChild([{ path: '', component: HomePage }]),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
   declarations: [HomePage]
 })

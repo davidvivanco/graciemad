@@ -8,15 +8,20 @@ export class FadeHeaderDirective {
 
   @HostListener('ionScroll', ['$event']) onContentScroll($event: ScrollCustomEvent) {
     let scrollTop = $event.detail.scrollTop;
+    console.log("scrollTop", this.toolbar);
     if (scrollTop >= 225) scrollTop = 225;
     this.domCtrl.write(() => {
       if (scrollTop <= 120) {
-        this.menuIcon.style.setProperty('background', 'none');
-        this.menuIcon.classList.remove('menu-icon-visible');
+        this.menuIcon?.style?.setProperty('background', 'none');
+        this.menuIcon?.classList?.remove('menu-icon-visible');
+        this.toolbar?.style?.setProperty('--background', 'black');
+        this.toolbar?.style?.setProperty('--color', 'white');
       }
       else {
-        this.menuIcon.style.setProperty('background', 'var(--ion-color-primary)');
-        this.menuIcon.classList.add('menu-icon-visible');
+        this.toolbar?.style?.setProperty('--background', 'white');
+        this.toolbar?.style?.setProperty('--color', 'black');
+        this.menuIcon?.style?.setProperty('color', 'black');
+        this.menuIcon?.classList?.add('menu-icon-visible');
       }
     });
   };
